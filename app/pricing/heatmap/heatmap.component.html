@@ -1,7 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12" style="display:flex;flex-direction:row;flex-wrap:wrap">
-      <div *ngFor="let symbol of heatMapList ; let i = index"  [ngStyle]="'height':boxHeight;'width':boxWidth;'margin':'5px'"  [ngStyle]="{'background-color': '#'+rainbow.colourAt(i)}">
+      <div *ngFor="let symbol of symbolsList ; let i = index"  [ngStyle]="'height':boxHeight + '%';'width':boxWidth +'%';'margin':'5px'"  [ngStyle]="{'background-color': '#'+rainbow.colourAt(i)}">
+        {{symbol.id}}
     </div>
     </div>
 </div>
