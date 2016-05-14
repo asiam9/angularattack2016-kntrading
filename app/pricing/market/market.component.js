@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', '../shared/market.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', '../shared/StockTimer', '../shared/market.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/marke
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, market_service_1;
+    var core_1, router_deprecated_1, StockTimer_1, market_service_1;
     var MarketComponent;
     return {
         setters:[
@@ -19,6 +19,9 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/marke
             },
             function (router_deprecated_1_1) {
                 router_deprecated_1 = router_deprecated_1_1;
+            },
+            function (StockTimer_1_1) {
+                StockTimer_1 = StockTimer_1_1;
             },
             function (market_service_1_1) {
                 market_service_1 = market_service_1_1;
@@ -30,10 +33,22 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/marke
                     this.marketService = marketService;
                 }
                 MarketComponent.prototype.getMarketDetails = function () {
-                    this.marketService.getMarketData();
+                    this.market = this.marketService.getMarketData();
+                };
+                MarketComponent.prototype.ChangeDirectionClass = function (changeDirection) {
+                    var classes = {
+                        red: changeDirection === 0,
+                        green: changeDirection === 1
+                    };
+                    return classes;
+                };
+                MarketComponent.prototype.ChangeDirectionImage = function (changeDirection) {
+                    return (changeDirection === 0) ? './down.png' : './up.png';
                 };
                 MarketComponent.prototype.ngOnInit = function () {
                     this.getMarketDetails();
+                    this.stockTimer = new StockTimer_1.StockTimer(this.market.symbols);
+                    this.stockTimer.start();
                 };
                 MarketComponent = __decorate([
                     core_1.Component({

@@ -6,19 +6,19 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             MarketSymbol = (function () {
-                // id: string;
-                // name: string;
-                // bidPrice: number;
-                // bidSize: number;
-                // offerPrice: number;
-                // offerSize: number;
-                // lastPrice: number;
-                // change: number;
-                // changeDirection : string;
-                // changePercent: number;
-                // lastTradeQuantity: number;
-                // lastTradeTime: string;
                 function MarketSymbol(id, name, bidPrice, bidSize, offerPrice, offerSize, lastPrice, change, changeDirection, changePercent, lastTradeQuantity, lastTradeTime) {
+                    this.id = id;
+                    this.name = name;
+                    this.bidPrice = bidPrice;
+                    this.bidSize = bidSize;
+                    this.offerPrice = offerPrice;
+                    this.offerSize = offerSize;
+                    this.lastPrice = lastPrice;
+                    this.change = change;
+                    this.changeDirection = changeDirection;
+                    this.changePercent = changePercent;
+                    this.lastTradeQuantity = lastTradeQuantity;
+                    this.lastTradeTime = lastTradeTime;
                 }
                 return MarketSymbol;
             }());
