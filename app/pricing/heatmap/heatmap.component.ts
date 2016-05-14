@@ -6,7 +6,7 @@ declare var Rainbow: any;
 
 @Component({
   selector: 'heatmap',
-  templateUrl : 'heatmap.component.html',
+  templateUrl : 'app/pricing/heatmap/heatmap.component.html',
   providers: [SymbolsService]
 })
 
@@ -22,7 +22,7 @@ constructor(private symbolService: SymbolsService) {
 }
 ngOnInit() {
   this.rainbow.setSpectrum('#FF0000','#FFFFFF', '#00FF00');
-  this.rainbow.setNumberRange(0,100);
+  this.rainbow.setNumberRange(0,this.symbolsList.length);
 }
 zoomIn(){
   if(this.boxHeight > 100){
