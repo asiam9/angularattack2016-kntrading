@@ -32,7 +32,7 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                 }
                 HeatMapComponent.prototype.ngOnInit = function () {
                     this.rainbow.setSpectrum('#FF0000', '#FFFFFF', '#00FF00');
-                    this.rainbow.setNumberRange(0, 100);
+                    this.rainbow.setNumberRange(0, this.symbolsList.length);
                 };
                 HeatMapComponent.prototype.zoomIn = function () {
                     if (this.boxHeight > 100) {
@@ -53,7 +53,7 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                 HeatMapComponent = __decorate([
                     core_1.Component({
                         selector: 'heatmap',
-                        templateUrl: 'heatmap.component.html',
+                        templateUrl: 'app/pricing/heatmap/heatmap.component.html',
                         providers: [symbol_service_1.SymbolsService]
                     }), 
                     __metadata('design:paramtypes', [symbol_service_1.SymbolsService])
