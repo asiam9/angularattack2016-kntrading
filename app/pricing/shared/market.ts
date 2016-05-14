@@ -4,6 +4,8 @@ import {MarketSymbol} from './market-symbol';
 export class Market {
     id: string;
     name: string;
-    marketSummary: MarketSummary;
+    marketStatusUrl:string;
+    marketImageUrl:string;
+    summary: MarketSummary;
     symbols: MarketSymbol[];
 }

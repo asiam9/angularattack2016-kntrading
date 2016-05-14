@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './pricing/market/market.component', './pricing/heatmap/heatmap.component', './watchlist/watchlist.component', './orders/place-order/place-order.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './pricing/market/market.component', './pricing/heatmap/heatmap.component', './watchlist/watchlist.component', './orders/place-order/place-order.component', './orders/order-monitor/order-monitor.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './pricing/marke
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, market_component_1, heatmap_component_1, watchlist_component_1, place_order_component_1;
+    var core_1, router_deprecated_1, market_component_1, heatmap_component_1, watchlist_component_1, place_order_component_1, order_monitor_component_1;
     var AppComponent;
     return {
         setters:[
@@ -31,6 +31,9 @@ System.register(['@angular/core', '@angular/router-deprecated', './pricing/marke
             },
             function (place_order_component_1_1) {
                 place_order_component_1 = place_order_component_1_1;
+            },
+            function (order_monitor_component_1_1) {
+                order_monitor_component_1 = order_monitor_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -58,6 +61,11 @@ System.register(['@angular/core', '@angular/router-deprecated', './pricing/marke
                             path: '/watchlist',
                             name: 'Watchlist',
                             component: watchlist_component_1.WatchListComponent
+                        },
+                        {
+                            path: '/orders',
+                            name: 'Orders',
+                            component: order_monitor_component_1.OrderMonitorComponent
                         }
                     ]), 
                     __metadata('design:paramtypes', [])

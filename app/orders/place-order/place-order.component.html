@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
-<a type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
-+
+<a data-toggle="modal" data-target="#myModal">
+<i class="fa fa-plus-circle"></i>
 </a>
 
 <!-- Modal -->
@@ -39,7 +39,7 @@
 
          <div class="form-group">
            <label  class="col-sm-4 control-label">Trade Amount</label>
-           <div class="col-sm-4">548255650655.6565</div>
+           <div class="col-sm-4">{{getTradeAmount()}}</div>
          </div>
 
        </form>
@@ -50,8 +50,8 @@
 
    </div>
    <div class="modal-footer">
-     <button type="button" class="btn btn-primary btn-default" (click)="addOrder()" >Buy</button>
-     <button type="button" class="btn btn-danger btn-default" (click)="addOrder()" >Sell</button>
+     <button type="button" class="btn btn-primary btn-default" (click)="addOrder(true)" >Buy</button>
+     <button type="button" class="btn btn-danger btn-default" (click)="addOrder(false)" >Sell</button>
    </div>
  </div>
 </div>

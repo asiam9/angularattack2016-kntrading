@@ -32,6 +32,11 @@ System.register(['@angular/core', './watchlist.service'], function(exports_1, co
                 WatchListComponent.prototype.ngOnInit = function () {
                     this.getWatchlists();
                 };
+                WatchListComponent.prototype.deleteWatchlist = function (watchlist) {
+                    _.remove(this.watchlistArr, function (currentWatchlist) {
+                        return watchlist.id == currentWatchlist.id;
+                    });
+                };
                 WatchListComponent = __decorate([
                     core_1.Component({
                         selector: 'watchlist',

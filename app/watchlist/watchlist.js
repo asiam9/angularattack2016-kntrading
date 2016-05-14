@@ -6,7 +6,8 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Watchlist = (function () {
-                function Watchlist(watchlistName, watchlistSymbols) {
+                function Watchlist(watchListID, watchlistName, watchlistSymbols) {
+                    this.id = watchListID;
                     this.name = watchlistName;
                     this.symbols = watchlistSymbols;
                 }
