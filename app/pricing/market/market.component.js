@@ -39,7 +39,8 @@ System.register(['@angular/core', '@angular/router-deprecated', '../shared/marke
                     core_1.Component({
                         selector: 'stock-market',
                         templateUrl: 'app/pricing/market/market.component.html',
-                        styleUrls: ['app/pricing/market/market.component.css']
+                        styleUrls: ['app/pricing/market/market.component.css'],
+                        providers: [market_service_1.MarketService]
                     }), 
                     __metadata('design:paramtypes', [router_deprecated_1.Router, market_service_1.MarketService])
                 ], MarketComponent);
