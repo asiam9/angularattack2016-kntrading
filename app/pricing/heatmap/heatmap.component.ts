@@ -10,6 +10,8 @@ declare var Rainbow: any;
 
 export class HeatMapComponent implements OnInit {
 rainbow : any;
+boxHeight : string;
+boxWidth
 constructor() {
   this.rainbow = new Rainbow();
 }
