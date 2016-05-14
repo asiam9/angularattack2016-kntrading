@@ -1,28 +1,21 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,600,400italic,700,900);
 
-body {
-    font-family: 'Source Sans Pro', sans-serif !important;
-}
-
-.navbar-default {
-    border-top: 2px solid transparent;
-    border-radius: 0;
-    -moz-border-image: -moz-linear-gradient(left, #00cfe8 0%, #536d7a 100%);
-    -webkit-border-image: -webkit-linear-gradient(left, #00cfe8 0%, #536d7a 100%);
-    border-image: linear-gradient(to right, #00cfe8 0%, #536d7a 100%);
-    border-image-slice: 1;
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 0;
-    margin-bottom: 0;
-}
-
-.navbar-default .navbar-nav>li>a {
-    color: #536d7a;
-    font-family: 'Source Sans Pro', sans-serif !important;
-}
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li.active>a{
-    color: #00cfe8;
-    background-color: transparent;
-    
-}
+  display: flex;
+  flex-direction: column;
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+  height: 100%;
+    flex: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    -webkit-flex-grow: 0;
+    -webkit-flex-shrink: 1;
+    -webkit-flex-basis: 0;
+    flex:1;
+    overflow: auto;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      -webkit-flex-grow: 0;
+      -webkit-flex-shrink: 1;
+      -webkit-flex-basis: 0;
