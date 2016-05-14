@@ -22,41 +22,58 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
             }],
         execute: function() {
             HeatMapComponent = (function () {
-                function HeatMapComponent(symbolService) {
+                function HeatMapComponent(symbolService, element) {
                     var _this = this;
                     this.symbolService = symbolService;
-                    this.boxHeight = 20;
-                    this.boxWidth = 20;
+                    this.element = element;
+                    this.boxHeight = 33.5;
+                    this.boxWidth = 33.5;
                     this.rainbow = new Rainbow();
                     symbolService.getSymbolsList().then(function (symbolsList) { return _this.symbolsList = symbolsList; });
+                    this.zoomDegree = 1;
+                    this.boxMargin = .9;
                 }
                 HeatMapComponent.prototype.ngOnInit = function () {
-                    this.rainbow.setSpectrum('#FF0000', '#FFFFFF', '#00FF00');
+                    this.rainbow.setSpectrum('#00FF00', '#FFFFFF', '#FF0000');
                     this.rainbow.setNumberRange(0, this.symbolsList.length);
+                    this.boxHeight = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
+                    this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                 };
                 HeatMapComponent.prototype.zoomIn = function () {
-                    if (this.boxHeight > 100) {
-                        this.boxHeight = this.boxHeight + 20;
+                    if (this.zoomDegree === 1)
+                        this.zoomDegree = 3;
+                    else if (this.zoomDegree === 3)
+                        this.zoomDegree = 13;
+                    else
+                        return;
+                    if (this.zoomDegree !== 13) {
+                        this.boxHeight = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
+                        this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                     }
-                    if (this.boxWidth > 100) {
-                        this.boxWidth = this.boxWidth + 20;
+                    else {
+                        console.log(jQuery(".bodyContainer").height() * .95);
+                        this.boxHeight = jQuery(".bodyContainer").height() * .95;
+                        this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                     }
                 };
                 HeatMapComponent.prototype.zoomOut = function () {
-                    if (this.boxHeight > 20) {
-                        this.boxHeight = this.boxHeight - 20;
-                    }
-                    if (this.boxWidth > 20) {
-                        this.boxWidth = this.boxWidth - 20;
-                    }
+                    if (this.zoomDegree === 13)
+                        this.zoomDegree = 3;
+                    else if (this.zoomDegree === 3)
+                        this.zoomDegree = 1;
+                    else
+                        return;
+                    this.boxHeight = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
+                    this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                 };
                 HeatMapComponent = __decorate([
                     core_1.Component({
                         selector: 'heatmap',
                         templateUrl: 'app/pricing/heatmap/heatmap.component.html',
+                        styleUrls: ['app/pricing/heatmap/heatmap.component.css'],
                         providers: [symbol_service_1.SymbolsService]
                     }), 
-                    __metadata('design:paramtypes', [symbol_service_1.SymbolsService])
+                    __metadata('design:paramtypes', [symbol_service_1.SymbolsService, core_1.ElementRef])
                 ], HeatMapComponent);
                 return HeatMapComponent;
             }());
