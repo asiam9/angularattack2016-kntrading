@@ -1,6 +1,6 @@
 <html>
-  <head>
-      <base href="/">
+<head>
+    <base href="/">
     <title>Angular 2 QuickStart JS KN 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,6 +20,7 @@
     <script src="rainbowvis.js"></script>
     <script src="https://use.fontawesome.com/bc77f1893c.js"></script>
     <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script type="text/javascript" src="node_modules/lodash/lodash.min.js"></script>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -27,11 +28,12 @@
     <!-- 2. Configure SystemJS -->
     <script src="systemjs.config.js"></script>
     <script>
-      System.import('app').catch(function(err){ console.error(err);  });
+        System.import('app').catch(function(err){ console.error(err);  });
+        
     </script>
-  </head>
-  <!-- 3. Display the application -->
-  <body>
-    <my-app>Loading...</my-app>
-  </body>
+</head>
+<!-- 3. Display the application -->
+<body>
+<my-app>Loading...</my-app>
+</body>
 </html>
