@@ -5,8 +5,12 @@ body {
 }
 
 .navbar-default {
-    border-top: 2px solid transparent;
+    border-top: 2px solid #1a252d;
+    border-bottom: 0;
     border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 5px 1px #ccc;
+/*
     -moz-border-image: -moz-linear-gradient(left, #00cfe8 0%, #536d7a 100%);
     -webkit-border-image: -webkit-linear-gradient(left, #00cfe8 0%, #536d7a 100%);
     border-image: linear-gradient(to right, #00cfe8 0%, #536d7a 100%);
@@ -15,14 +19,32 @@ body {
     border-bottom: 0;
     border-left: 0;
     margin-bottom: 0;
+*/
 }
-
+.navbar-default .container-fluid {
+    padding-right: 0;
+}
+.add-new {
+    background-color: #00d96e;
+    transition: all ease 0.6s;
+}
+.add-new a {
+    font-size: 20px;
+    color: #fff;
+}
+.add-new:hover {
+    background-color: #1a252d;
+}
+.navbar-brand {
+    color: #00d96e;
+}
 .navbar-default .navbar-nav>li>a {
-    color: #536d7a;
+    color: #1a252d;
     font-family: 'Source Sans Pro', sans-serif !important;
+    transition: all ease 0.5s;
 }
 .navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li.active>a{
-    color: #00cfe8;
+    color: #00d96e;
     background-color: transparent;
     
 }
