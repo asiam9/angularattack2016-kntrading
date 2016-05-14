@@ -1,7 +1,7 @@
 /**
  * Created by mmsadek on 5/14/2016.
  */
-import { Symbol } from './shared/symbol';
+import { Symbol } from '../shared/symbol';
 export class Watchlist {
     name: string;
     symbols: Symbol[];

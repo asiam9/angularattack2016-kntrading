@@ -1,6 +1,7 @@
 import {Component , OnInit} from '@angular/core';
 import { Router } from '@angular/router-deprecated';
-import {MarketService} from './pricing/Shared/market.service';
+import {MarketService} from '../shared/market.service';
+import {Market} from '../shared/market';
 
 @Component({
     selector: 'stock-market',
@@ -9,18 +10,17 @@ import {MarketService} from './pricing/Shared/market.service';
 })
 
 
-export class MatketComponent implements OnInit {
+export class MarketComponent implements OnInit {
     market : Market;
 
     constructor(
         private router: Router,
         private marketService: MarketService) { }
     getMarketDetails() {
-        this.marketService.getMarketDetails().then(market => this.market = market);
+        this.marketService.getMarketData();
     }
     ngOnInit() {
         this.getMarketDetails();
     }
 
 }
-

@@ -3,7 +3,7 @@ export class MarketSummary {
     mainIndexValue: number;
     change: number;
     changePercentage: number;
-    changeDirection: number;
+    changeDirection: string;
     turnOver: number;
     totalVolumeTraded: number;
     numberOfTrades : number;

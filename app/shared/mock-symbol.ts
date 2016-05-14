@@ -1,10 +1,10 @@
 /**
  * Created by mmsadek on 5/14/2016.
  */
-import {Symbol} from './shared/symbol';
+import {Symbol} from '../shared/symbol';
 
 export var SYMBOLS: Symbol[]=[
-    {"id": 12, "name": "Narco",   "bidPrice": 12.464,
+    {"id": "12", "name": "Narco",   "bidPrice": 12.464,
         "bidSize": 4354,
         "offerPrice": 55.575,
         "offerSize": 487576,

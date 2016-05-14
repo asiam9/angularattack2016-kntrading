@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
 import { Watchlist } from '../watchlist/watchlist';
-import {Symbol} form './shared/symbol';
-import { WatchlistService } from './wahtchlist.service';
+import {Symbol} from '../shared/symbol';
+import { WatchlistService } from './watchlist.service';
 @Component({
     selector: 'watchlist',
     templateUrl: 'app/watchlist/watchlist.component.html',
