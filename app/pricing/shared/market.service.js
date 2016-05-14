@@ -1,4 +1,4 @@
-System.register(['@angular/core'], function(exports_1, context_1) {
+System.register(['./mock-market', './mock-market-symbols', '@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,29 +10,37 @@ System.register(['@angular/core'], function(exports_1, context_1) {
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1;
-    var AppComponent;
+    var mock_market_1, mock_market_symbols_1, core_1;
+    var MarketService;
     return {
         setters:[
+            function (mock_market_1_1) {
+                mock_market_1 = mock_market_1_1;
+            },
+            function (mock_market_symbols_1_1) {
+                mock_market_symbols_1 = mock_market_symbols_1_1;
+            },
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            MarketService = (function () {
+                function MarketService() {
                 }
-                AppComponent = __decorate([
-                    core_1.Component({
-                        selector: 'my-app',
-                        templateUrl: 'app/app.component.html',
-                        styleUrls: ['app/app.component.css']
-                    }), 
+                MarketService.prototype.getMarketData = function () {
+                    return mock_market_1.MarketData;
+                };
+                MarketService.prototype.getMarketSymbols = function () {
+                    return mock_market_symbols_1.SYMBOLS;
+                };
+                MarketService = __decorate([
+                    core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], MarketService);
+                return MarketService;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("MarketService", MarketService);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=market.service.js.map

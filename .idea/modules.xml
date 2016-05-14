@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/angularattack2016-kntrading.iml" filepath="$PROJECT_DIR$/angularattack2016-kntrading.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trading-attacl-1.iml" filepath="$PROJECT_DIR$/trading-attacl-1.iml" />
     </modules>
   </component>
 </project>

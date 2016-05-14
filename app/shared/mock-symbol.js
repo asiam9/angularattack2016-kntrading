@@ -1,0 +1,73 @@
+System.register([], function(exports_1, context_1) {
+    "use strict";
+    var __moduleName = context_1 && context_1.id;
+    var SYMBOLS;
+    return {
+        setters:[],
+        execute: function() {
+            exports_1("SYMBOLS", SYMBOLS = [
+                { "id": "12", "name": "Narco", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" },
+                { "id": "DFM", "name": "DFM", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" },
+                { "id": "DIC", "name": "DIC", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" },
+                { "id": "Narco", "name": "Narco", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" },
+                { "id": "EMAAR", "name": "EMAAR", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" },
+                { "id": "TABREED", "name": "TABREED", "bidPrice": 12.464,
+                    "bidSize": 4354,
+                    "offerPrice": 55.575,
+                    "offerSize": 487576,
+                    "lastPrice": 567.676,
+                    "change": 67.4,
+                    "changeDirection": "-",
+                    "changePercent": 68.7,
+                    "lastTradeQuantity": 878,
+                    "lastTradeTime": "5/13/2016 7:12" }
+            ]);
+        }
+    }
+});
+//# sourceMappingURL=mock-symbol.js.map
