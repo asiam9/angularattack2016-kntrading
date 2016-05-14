@@ -5,8 +5,8 @@ import {Market} from '../shared/market';
 
 @Component({
     selector: 'stock-market',
-    templateUrl: 'app/Market/market.component.html',
-    styleUrls:  ['app/Market/market.component.css']
+    templateUrl: 'app/pricing/market/market.component.html',
+    styleUrls:  ['app/pricing/market/market.component.css']
 })
 
 
