@@ -8,18 +8,16 @@
         <div class="card-header">
             <h2>{{watchList.name}}</h2>
 
-            <button type="button" class="glyphicon-trash" (click)="deleteWatchlist()">Delete</button>
-            <button type="button" class="glyphicon-edit" (click)="editWatchlist()">Edit</button>
+            <button type="button" class="btn btn-danger" (click)="deleteWatchlist(watchList)"><i class="fa fa-trash-o"></i> </button>
+            <button type="button" class="btn btn-primary" (click)="editWatchlist(watchList)"><i class="fa fa-pencil-square-o"></i> </button>
         </div>
         <div class="card-block">
             <div *ngFor="let symbols of watchList.symbols">
                 {{symbols.id}} - {{symbols.name}} -{{symbols.lastPrice}}
             </div>
-
         </div>
     </div>
 
-    <button type="button" class="btn btn-default" (click)="getWatchlistSymbols(watchList)">Show</button>
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -33,17 +31,17 @@
                 <form>
                     <div class="form-group">
                         <label for="watchlist-name" class="control-label" >Name</label>
-                        <input type="text" class="form-control" id="watchlist-name" placeholder="Enter watchlist name">
+                        <input type="text" #watchlistName class="form-control" id="watchlist-name" placeholder="Enter watchlist name">
                     </div>
                     <div class="form-group">
-                        <input type="search" class="form-control" id="watchlist-symbols" placeholder="+ Add symbol">
+                        <input type="search"  class="form-control" id="watchlist-symbols" placeholder="+ Add symbol">
 
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary" (click) = "addWatchlist(watchlistName.value)">Save</button>
             </div>
         </div>
     </div>
