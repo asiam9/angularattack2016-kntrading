@@ -1,1 +1,19 @@
-Watchlist component
+<li *ngFor="let watchList of watchlistArr " [value]="watchList.name" xmlns="http://www.w3.org/1999/html">
+
+    <div class="card text-xs-center">
+        <div class="card-header">
+           <h2>{{watchlist.name}}</h2>
+            <button type="button" class="glyphicon-trash" (click)="deleteWatchlist()">Delete</button>
+            <button type="button" class="glyphicon-edit" (click)="editWatchlist()">Edit</button>
+        </div>
+        <div class="card-block">
+
+        </div>
+    </div>
+
+
+
+    <button type="button" class="btn btn-default" (click)="getWatchlistSymbols(watchList)">Show</button>
+</li>
+
+
