@@ -1,0 +1,30 @@
+/*CARDS*/
+.card {
+    position: relative;
+    display: block;
+    margin-bottom: .75rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px 1px #ccc;
+    border-radius: .25rem;
+}
+.card-header {
+    background-color: #fff;
+    border-top: 2px solid #00d96e;
+    border-bottom: 1px solid #ebeff2;
+    position: relative;
+}
+.card-header h4 {
+    margin: 0;
+    padding: 15px;
+}
+.action-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.card-block {
+    padding: 1.25rem;
+    height: 150px;
+    overflow-x: auto;
+}
+/*CARDS*/

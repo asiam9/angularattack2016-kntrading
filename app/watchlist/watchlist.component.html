@@ -1,24 +1,29 @@
+<div class="row m-b-15">
+    <div class="col-md-12">
+        <a href="" class="add" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-plus btn btn-lg btn-green btn-circle"></i>Add Watch list
+        </a>
+    </div>
+</div>
 
-<a href="#" class="btn btn-lg btn-success"
-   data-toggle="modal"
-   data-target="#exampleModal">+</a>
-<a href="">Add Watch list</a>
-
-    <div class="card text-xs-center" *ngFor="let watchList of watchlistArr">
-        <div class="card-header">
-            <h2>{{watchList.name}}</h2>
-
-            <button type="button" class="btn btn-danger" (click)="deleteWatchlist(watchList)"><i class="fa fa-trash-o"></i> </button>
-            <button type="button" class="btn btn-primary" (click)="editWatchlist(watchList)"><i class="fa fa-pencil-square-o"></i> </button>
-        </div>
-        <div class="card-block">
-            <div *ngFor="let symbols of watchList.symbols">
-                {{symbols.id}} - {{symbols.name}} -{{symbols.lastPrice}}
+<div class="row">
+    <div class="col-md-3" *ngFor="let watchList of watchlistArr">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="gray">{{watchList.name}}</h4>
+                <div class="action-btn">
+                    <a href="" class="acti-btn red" (click)="deleteWatchlist(watchList)"><i class="fa fa-trash-o"></i> </a>
+                    <a href="" class="acti-btn gray" (click)="editWatchlist(watchList)"><i class="fa fa-pencil-square-o"></i> </a>
+                </div>
+            </div>
+            <div class="card-block">
+                <div *ngFor="let symbols of watchList.symbols">
+                    {{symbols.id}} - {{symbols.name}} -{{symbols.lastPrice}}
+                </div>
             </div>
         </div>
     </div>
-
-
+</div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
