@@ -3,13 +3,14 @@ import {RouteConfig,ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-
 import {MarketComponent} from './pricing/market/market.component';
 import {HeatMapComponent} from './pricing/heatmap/heatmap.component';
 import {WatchListComponent} from './watchlist/watchlist.component';
+import {PlaceOrderComponent} from './orders/place-order/place-order.component';
 
 @Component({
   selector: 'my-app',
   templateUrl: 'app/app.component.html',
   styleUrls:['app/app.component.css'],
   providers:[ROUTER_PROVIDERS],
-  directives:[ROUTER_DIRECTIVES]
+  directives:[ROUTER_DIRECTIVES,PlaceOrderComponent]
 })
 @RouteConfig([{
   path:'/market',
