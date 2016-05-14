@@ -1,4 +1,4 @@
-export interface Symbol {
+export class Symbol {
     id: string;
     name: string;
     bidPrice: number;
@@ -11,4 +11,5 @@ export interface Symbol {
     changePercent: number;
     lastTradeQuantity: number;
     lastTradeTime: string;
+
 }
