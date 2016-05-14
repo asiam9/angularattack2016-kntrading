@@ -1,5 +1,5 @@
 export interface Symbol {
-    id: number;
+    id: string;
     name: string;
     bidPrice: number;
     bidSize: number;
