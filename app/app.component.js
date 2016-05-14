@@ -1,4 +1,5 @@
 (function(app) {
+// test
   app.AppComponent =
     ng.core.Component({
       selector: 'my-app',
