@@ -4,6 +4,7 @@ import {MarketComponent} from './pricing/market/market.component';
 import {HeatMapComponent} from './pricing/heatmap/heatmap.component';
 import {WatchListComponent} from './watchlist/watchlist.component';
 import {PlaceOrderComponent} from './orders/place-order/place-order.component';
+import {OrderMonitorComponent} from './orders/order-monitor/order-monitor.component';
 
 @Component({
   selector: 'my-app',
@@ -26,6 +27,11 @@ import {PlaceOrderComponent} from './orders/place-order/place-order.component';
   path:'/watchlist',
   name:'Watchlist',
   component:WatchListComponent
+},
+{
+  path:'/orders',
+  name:'Orders',
+  component:OrderMonitorComponent
 }
 ])
 export class AppComponent {

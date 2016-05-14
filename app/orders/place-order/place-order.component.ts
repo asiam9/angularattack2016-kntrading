@@ -31,10 +31,10 @@ export class PlaceOrderComponent {
     this.quantity=undefined;
   }
 
-  addOrder(){
+  addOrder(isBus:boolean){
     let symbol:Symbol=this.symbolService.getSymbolById(this.symbolId);
     if(symbol){
-        this.ordersService.addOrder(new Order(symbol,this.quantity,this.price,2))
+        this.ordersService.addOrder(new Order(symbol,this.quantity,this.price,isBus,2))
         this.resetValues();
     }
   }
