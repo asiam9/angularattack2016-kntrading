@@ -6,6 +6,6 @@ import {SYMBOLS} from './mock-symbol';
 @Injectable()
 export class SymbolsService {
   getSymbolsList() {
-      return SYMBOLS;
+      return Promise.resolve(SYMBOLS);
   }
 }

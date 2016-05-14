@@ -25,7 +25,7 @@ System.register(['@angular/core', './mock-symbol'], function(exports_1, context_
                 function SymbolsService() {
                 }
                 SymbolsService.prototype.getSymbolsList = function () {
-                    return mock_symbol_1.SYMBOLS;
+                    return Promise.resolve(mock_symbol_1.SYMBOLS);
                 };
                 SymbolsService = __decorate([
                     core_1.Injectable(), 
