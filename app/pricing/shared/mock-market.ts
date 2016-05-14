@@ -1,4 +1,4 @@
-import {Market} from './pricing/Shared/market';
+import {Market} from './market';
 
 export var MarketData: Market = {
 "id": 11, "name": "Mr. Nice" , "marketSummary":{ "mainIndexValue": 686112,
