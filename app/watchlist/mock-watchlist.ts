@@ -1,7 +1,7 @@
 import { Watchlist } from './watchlist/watchlist';
 import {Symbol} from './shared/symbol';
-import {SYMBOLS} from './shared/mock-symbols'
-}
+import {SYMBOLS} from './shared/mock-symbols';
+
 export var WATCHLISTS: Watchlist[] = [
     {name: "WatchList 1",symbols:[SYMBOLS[0],SYMBOLS[1]]},
     {name: "WatchList 2",symbols:[SYMBOLS[2],SYMBOLS[3]]},
