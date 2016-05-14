@@ -22,6 +22,7 @@ export class PlaceOrderComponent {
 
   addOrder(){
     let symbol:Symbol=this.symbolService.getSymbolById(this.symbolId);
+    
     if(symbol){
 
     }
