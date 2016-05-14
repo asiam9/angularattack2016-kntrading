@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core';
-import { Watchlist } from './watchlist/watchlist';
+import { Watchlist } from '../watchlist/watchlist';
 
-import { WatchlistService } from './watchlist.service';
+import { WatchlistService } from './wahtchlist.service';
 @Component({
     selector: 'watchlist',
     templateUrl: 'app/watchlist.component.html',
@@ -25,7 +25,7 @@ export class WatchListComponent implements OnInit{
     addWatchlist(name:string,symbols:string,valid:boolean,form:Object) {
         if(valid){
             this.symbols=symbols.split(',');
-            this.watchlist = new Watchlist(name,this.symbols);
+          //  this.watchlist = new Watchlist(name,this.symbols);
             this.watchlistArr.push(this.watchlist);
 
             /*form.controls.name._pristine=true;
@@ -38,7 +38,7 @@ export class WatchListComponent implements OnInit{
     }
     getWatchlistSymbols(watchlist: Watchlist){
         this.selectedWatchlist=watchlist;
-        this.watchlistSymbols=this.selectedWatchlist.symbols;
+      //  this.watchlistSymbols=this.selectedWatchlist.symbols;
         /*this.watchlistService.getWatchlistSymbols(this.selectedWatchlist).then(
          watchlistSymbols => this.watchlistSymbols=watchlistSymbols.symbols);*/
     }
