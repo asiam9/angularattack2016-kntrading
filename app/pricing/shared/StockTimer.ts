@@ -13,7 +13,7 @@ constructor(symbolsList: MarketSymbol[])
 
 
 start(){
-  this.timer =  setInterval(function() {this.generateFeed();}.bind(this), 100);
+  this.timer =  setInterval(function() {this.generateFeed();}.bind(this), 1000);
 }
 
 stop(){
@@ -24,7 +24,10 @@ generateFeed(){
 
   for (var n = 1; n <= 3; n++)
    {
-    var symbolIndex:number = this.getRandomInt(30);
+    var symbolIndex:number = this.getRandomInt(29);
+    if(!this.symbols[symbolIndex]){
+      continue;
+    }
     this.symbols[symbolIndex].bidPrice.setFlicketValue(this.getRandomFloat(1000)) ;
     this.symbols[symbolIndex].bidSize.setFlicketValue(this.getRandomInt(50000));
     this.symbols[symbolIndex].offerPrice.setFlicketValue(this.getRandomFloat(1000));

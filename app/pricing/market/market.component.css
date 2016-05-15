@@ -1,0 +1,18 @@
+.status {
+    padding-right: 15px;
+}
+.flag {
+    padding-right: 15px;
+}
+.content {
+}
+.status-head {
+    padding: 15px;
+    border: 1px solid #536d7a;
+    color: #fff;
+    margin: 0 0 15px;
+}
+
+.head-tit {
+    font-weight: 600;
+}
