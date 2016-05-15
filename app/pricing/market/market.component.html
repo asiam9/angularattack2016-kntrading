@@ -1,51 +1,55 @@
 <div class="container-fluid">
-      <div  class="row">
-        <div class="col-md-1"><img width="15" height="15" src="{{market.marketStatusUrl}}">   </div>
-          <div class="col-md-1"> {{market.id +" - "+ market.name}}</div>
-        <div class="col-md-1 "> <img width="15" height="15" src="{{market.marketImageUrl}}"></div>
-          <div class="col-md-2">{{market.summary.mainIndexValue}}  <img width="15" height="15" src="{{market.summary.mainIndexDirectionUrl}}"> {{market.summary.change +"("+market.summary.changePercentage+"%)"}}</div>
-        <div class="col-md-1 "><div>turnOver</div><div>{{market.summary.turnOver}}</div></div>
-        <div class="col-md-1 "><div>T.Volum</div><div>{{market.summary.totalVolumeTraded}}</div></div>
-        <div class="col-md-1 "><div>Trades</div><div>{{market.summary.numberOfTrades}}</div></div>
-        <div class="col-md-1 "><div>Traded</div><div>{{market.summary.traded}}</div></div>
-        <div class="col-md-1 "><div>Up</div><div>{{market.summary.up}}</div></div>
-        <div class="col-md-1 "><div>Down</div><div>{{market.summary.down}}</div></div>
+   <div  class="row status-head">
+        <div class="col-md-3">
+            <span class="status"><img width="15" height="15" src="{{market.marketStatusUrl}}"></span>
+            <span class="flag"><img width="15" height="15" src="{{market.marketImageUrl}}"></span>
+            <span class="content">{{market.id +" - "+ market.name}}</span>
+        </div>
+        <div class="col-md-3 head-tit">
+            {{market.summary.mainIndexValue}} 
+            <img width="15" height="15" src="{{market.summary.mainIndexDirectionUrl}}"> 
+            <span class="red">{{market.summary.change +"("+market.summary.changePercentage+"%)"}}</span>
+       </div>
+        <div class="col-md-1 "><div class="uppercase head-tit">turnOver</div><div>{{market.summary.turnOver}}</div></div>
+        <div class="col-md-1 "><div class="uppercase head-tit">T.Volum</div><div>{{market.summary.totalVolumeTraded}}</div></div>
+        <div class="col-md-1 "><div class="uppercase head-tit">Trades</div><div>{{market.summary.numberOfTrades}}</div></div>
+        <div class="col-md-1 "><div class="uppercase head-tit">Traded</div><div>{{market.summary.traded}}</div></div>
+        <div class="col-md-1 "><div class="green uppercase head-tit">Up</div><div>{{market.summary.up}}</div></div>
+        <div class="col-md-1 "><div class="red uppercase head-tit">Down</div><div>{{market.summary.down}}</div></div>
+    </div>
 
-
-      </div>
-
-      <div class="row">
+    <div class="row">
       <div class="col-md-12">
-        <table border="1" style="width:100%">
-    <tr>
-      <td>Symbol</td>
-      <td>Best bid price</td>
-      <td>Best bid size</td>
-  	  <td>Best offer price</td>
-      <td>Best offer size</td>
-  	  <td>Last price</td>
-      <td>Change</td>
-      <td>Change %</td>
-  	  <td>Last Trade Quantity</td>
-  	  <td>Last Trade Time</td>
-
-    </tr>
-
-    <tr *ngFor="let symbol of market.symbols">
-      <td><tr> {{ symbol.id }} </tr><tr>{{ symbol.name }}</tr></td>
-        <td [ngClass]="ChangeDirectionClass(symbol.bidPrice.changeDirection)">  {{ symbol.bidPrice.value}}</td>
-          <td [ngClass]="ChangeDirectionClass(symbol.bidSize.changeDirection)">  {{ symbol.bidSize.value }}</td>
-            <td [ngClass]="ChangeDirectionClass(symbol.offerPrice.changeDirection)">  {{ symbol.offerPrice.value }}</td>
-              <td [ngClass]="ChangeDirectionClass(symbol.offerSize.changeDirection)">  {{ symbol.offerSize.value }}</td>
-                <td [ngClass]="ChangeDirectionClass(symbol.lastPrice.changeDirection)">  <span>{{ symbol.lastPrice.value }}</span> <span></span>  <img width="10" height="10" src="{{symbol.lastPrice.changeDirectionImage}}"> </td>
-                  <td >  {{ symbol.change}}</td>
+        <table class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                  <th>Symbol</th>
+                  <th>Best bid price</th>
+                  <th>Best bid size</th>
+                  <th>Best offer price</th>
+                  <th>Best offer size</th>
+                  <th>Last price</th>
+                  <th>Change</th>
+                  <th>Change %</th>
+                  <th>Last Trade Quantity</th>
+                  <th>Last Trade Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let symbol of market.symbols">
+                    <td><tr> {{ symbol.id }} </tr><tr>{{ symbol.name }}</tr></td>
+                    <td [ngClass]="ChangeDirectionClass(symbol.bidPrice.changeDirection)">  {{ symbol.bidPrice.value}}</td>
+                    <td [ngClass]="ChangeDirectionClass(symbol.bidSize.changeDirection)">  {{ symbol.bidSize.value }}</td>
+                    <td [ngClass]="ChangeDirectionClass(symbol.offerPrice.changeDirection)">  {{ symbol.offerPrice.value }}</td>
+                    <td [ngClass]="ChangeDirectionClass(symbol.offerSize.changeDirection)">  {{ symbol.offerSize.value }}</td>
+                    <td [ngClass]="ChangeDirectionClass(symbol.lastPrice.changeDirection)">  <span>{{ symbol.lastPrice.value }}</span> <span></span>  <img width="10" height="10" src="{{symbol.lastPrice.changeDirectionImage}}"> </td>
+                    <td >  {{ symbol.change}}</td>
                     <td>  {{ symbol.changePercent}}</td>
-                      <td>  {{ symbol.lastTradeQuantity}}</td>
-                            <td>  {{ symbol.lastTradeTime | date : "medium"}}</td>
-
-    </tr>
-
-  </table>
+                    <td>  {{ symbol.lastTradeQuantity}}</td>
+                    <td>  {{ symbol.lastTradeTime | date : "medium"}}</td>
+                </tr>
+            </tbody>
+        </table>
       </div>
     </div>
 
