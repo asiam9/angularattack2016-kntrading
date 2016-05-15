@@ -1,23 +1,51 @@
+.container-flex {
+    padding-right: 44px;
+}
 .heatMapBox{
   margin : 5px;
   flex-grow: 1;
   flex-shrink: 0;
   flex-basis: auto;
   padding: 10px;
-  border: 1px solid #f6f6f6;
 }
 
-.zoom{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+.zoom {
+    position: fixed;
+    top: 45%;
+    right: 10px;
+    width: 30px;
 }
 
+.zoom a {
+    display: block;
+}
+
+.zoom-btn i {
+    cursor: pointer;
+    padding: 10px;
+    background-color: #536d7a;
+    color: #fff;
+    border-radius: 25px;
+    margin: 5px 0;
+    box-shadow: 0 0 6px 1px #112;
+    transition: all ease 0.3s;
+}
+
+.zoom-btn i:hover {
+    background-color: #36474f;
+}
 .container-flex {
     display: flex;
     flex-direction: row;
     display: -webkit-flex;
     -webkit-flex-direction: row;
     flex-wrap: wrap;
+}
+.heatMapBox {
+    color: #1a252d;
+}
+.large-view {
+    background-color: #fff;
+    padding: 20px;
+    height: 100%;
 }

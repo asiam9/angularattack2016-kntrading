@@ -15,7 +15,7 @@
             <div><span>Best Offer:</span><span>{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
             <div><span>Best Bid:</span> <span>{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
           </div>
-          <div *ngIf="zoomDegree == 13">
+          <div class="large-view" *ngIf="zoomDegree == 13">
             <div><span>{{symbol.id}}</span> <span>{{symbol.name}}</span></div>
             <div><span>{{symbol.lastPrice}}</span> <img src="{{getChange(symbol)}}"/></div>
             <div><span>{{symbol.change}}</span> <span>&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
@@ -26,7 +26,7 @@
         </div>
       </div>
     <div class=zoom>
-      <button (click) = "zoomIn()">Zoom in</button>
-      <button (click) = "zoomOut()">Zoom out</button>
+      <a class="zoom-btn" (click) = "zoomIn()"><i class="fa fa-search-plus"></i></a>
+      <a class="zoom-btn" (click) = "zoomOut()"><i class="fa fa-search-minus"></i></a>
     </div>
   </div>

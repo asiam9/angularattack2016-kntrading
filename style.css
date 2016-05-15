@@ -51,6 +51,15 @@ a {
 /*NAVBAR*/
 
 /*BUTTONS*/
+.btu:focus {
+    outline: 0;
+    text-decoration: none;
+}
+a:focus, a:hover {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+}
 .btn-green {
     background-color: #00d96e;
     color: #fff;
@@ -95,6 +104,12 @@ a {
 /*BUTTONS*/
 
 /*COLORS*/
+.blue {
+    color: #03a9f5;
+}
+.blue-dark {
+    color: #1c89e6;
+}
 .green {
     color: #00d96e;
 }
@@ -107,17 +122,14 @@ a {
 .red-dark {
     color: #b71b1c;
 }
-.gray {
-    color: #536d7a;
-}
 .gray-light {
     color: #ebedec;
 }
+.gray {
+    color: #536d7a;
+}
 .gray-dark {
     color: #1a252d;
-}
-.blue {
-    color: #03a9f5;
 }
 /*COLORS*/
 
@@ -167,9 +179,11 @@ a {
 thead {
 /*    background-color: #25323C;*/
     border-top: 2px solid #00d96e;
+/*
     box-shadow: 0 1px 4px 1px #000;
     -moz-box-shadow:  0 1px 4px 1px #000;
     -webkit-box-shadow: 0 1px 4px 1px #000;
+*/
 }
 .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
     border-color: #536d7a;
