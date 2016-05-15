@@ -11,8 +11,8 @@
 
 .zoom {
     position: fixed;
-    top: 45%;
-    right: 10px;
+    top: 40%;
+    right: 11px;
     width: 30px;
 }
 
@@ -50,7 +50,7 @@
     height: 100%;
 }
 
-.label {
+.lbl {
     font-weight: 800;
     color: #1a252d;
     font-size: 15;

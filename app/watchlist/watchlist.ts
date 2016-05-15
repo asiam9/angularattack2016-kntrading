@@ -1,12 +1,13 @@
 /**
  * Created by mmsadek on 5/14/2016.
  */
-import { Symbol } from '../shared/symbol';
+import { MarketSymbol } from '../pricing/shared/market-symbol';
+
 export class Watchlist {
     id:number;
     name: string;
-    symbols: Symbol[];
-    constructor(id:number,name:string,symbols:Symbol[])
+    symbols: MarketSymbol[];
+    constructor(id:number,name:string,symbols:MarketSymbol[])
     {
         this.id=id;
         this.name=name;

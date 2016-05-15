@@ -22,7 +22,6 @@ export class PlaceOrderComponent implements OnInit{
   price:number;
   quantity:number;
   selectedSymbol:MarketSymbol;
-  invalidSymbol:boolean=false;
   formSubmitted:boolean=false;
   symbolsList:MarketSymbol[];
 
@@ -41,8 +40,14 @@ export class PlaceOrderComponent implements OnInit{
   }
   resetValues(){
     this.symbolId=undefined;
+    this.selectedSymbol=undefined;
     this.price=undefined;
     this.quantity=undefined;
+    this.formSubmitted=false;
+  }
+
+  symbolSelected(element:any){
+      this.selectedSymbol=element.item;
   }
 
   hideModal(){
@@ -51,14 +56,10 @@ export class PlaceOrderComponent implements OnInit{
 
   addOrder(isBus:boolean){
     this.formSubmitted=true;
-    this.selectedSymbol=this.marketService.getMarketSymbolById(this.symbolId);
     if(this.selectedSymbol){
-      this.invalidSymbol=false;
       this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.sequenceGenerator.getNextSequence('order')))
       this.resetValues();
       this.hideModal();
-    }else{
-      this.invalidSymbol=true;
     }
   }
 

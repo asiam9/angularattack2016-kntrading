@@ -11,7 +11,7 @@
 <td>{{order.id}}</td>
 <td>{{order.price}}</td>
 <td>{{order.quantity}}</td>
-<td>{{order.isBuy?'Buy':'Sell'}}</td>
+<td [class.red]="!order.isBuy" [class.green]="order.isBuy">{{order.isBuy?'Buy':'Sell'}}</td>
 <td>{{order.symbol.name}}</td>
 </tr>
 </table>

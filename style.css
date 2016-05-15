@@ -5,6 +5,46 @@ body {
     color: #fff;
     background-color: #1a252d;
 }
+::-moz-selection { /* Code for Firefox */
+    color: #1a252d;
+    background: #00d96e;
+}
+
+::selection {
+    color: #1a252d; 
+    background: #00d96e;
+}
+
+/*SCROLL STYLE*/
+
+body{
+    scrollbar-base-color: #536d7a;
+    scrollbar-base-color: #536d7a;
+    scrollbar-3dlight-color: #536d7a;
+    scrollbar-highlight-color: #536d7a;
+    scrollbar-track-color: #1a252d;
+    scrollbar-arrow-color: #1a252d;
+    scrollbar-shadow-color: #536d7a;
+    scrollbar-dark-shadow-color: #536d7a;
+}
+
+scrollbar { width: 3px; height: 3px;}
+scrollbar-button {  background-color: #1a252d; }
+scrollbar-track {  background-color: #00d96e;}
+scrollbar-track-piece { background-color: #536d7a;}
+scrollbar-thumb { height: 50px; background-color: #1a252d; border-radius: 3px;}
+scrollbar-corner { background-color: #00d96e;}}
+resizer { background-color: #1a252d;}
+
+::-webkit-scrollbar { width: 3px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #1a252d; }
+::-webkit-scrollbar-track {  background-color: #00d96e;}
+::-webkit-scrollbar-track-piece { background-color: #536d7a;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #1a252d; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #00d96e;}}
+::-webkit-resizer { background-color: #1a252d;}
+
+/*SCROLL STYLE*/
 
 /*NAVBAR*/
 .navbar-default {
@@ -95,9 +135,10 @@ a:focus, a:hover {
 .add {
     color: #fff;
     border: 1px solid #00d96e;
-    padding: 7px 14px 10px 0;
+    padding: 0px 15px 0px 0;
     border-radius: 25px;
     transition: all ease 0.5s;
+    background-color: transparent;
 }
 .add:hover {
     text-decoration: none;
@@ -198,6 +239,18 @@ button.acti-btn, .btn-non-bg {
 .p-l-5 {
     padding-left: 5px;
 }
+.p-r-5 {
+    padding-right: 5px;
+}
+.f-s-20 {
+    font-size: 20px;
+}
+.f-s-25 {
+    font-size: 25px;
+}
+.f-s-30 {
+    font-size: 30px;
+}
 /*MARGINS*/
 
 
@@ -221,16 +274,24 @@ thead {
     border-color: 2px solid #00d96e !important;
 }
 /*Tables*/
+/*MENU*/
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle .icon-bar {
+    background-color: #00d96e;
+}
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle {
+    border-color: #00d96e;
+}
+
+button.navbar-toggle.collapsed {
+    margin-right: 30px;
+}
+
+/*MENU*/
 
 /*MODALS*/
-/*
-.modal-content {
-    background-color: #25323C;
-}
-.close:focus, .close:hover {
-    color: #fff;
-}
-*/
 .modal-content h4, .modal-content label {
     color: #536d7a;
     font-weight: normal;
