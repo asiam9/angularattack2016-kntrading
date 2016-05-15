@@ -3,6 +3,7 @@ import {Order} from '../shared/order';
 import {SymbolsService} from '../../shared/symbol.service';
 import {Symbol} from '../../shared/symbol';
 import {OrdersService} from '../shared/orders.service';
+import {OrderNumberSequence} from '../shared/order-number-sequence.service';
 
 declare var jQuery:any;
 
@@ -10,7 +11,7 @@ declare var jQuery:any;
   selector: 'place-order',
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
-  providers:[SymbolsService,OrdersService]
+  providers:[SymbolsService,OrdersService,OrderNumberSequence]
 })
 
 export class PlaceOrderComponent implements OnInit{
@@ -26,7 +27,7 @@ export class PlaceOrderComponent implements OnInit{
     jQuery('[data-toggle="tooltip"]').tooltip();
   }
 
-  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private elementRef: ElementRef) { }
+  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) { }
 
   getTradeAmount(){
     let tradeAmount=this.quantity*this.price;
@@ -47,7 +48,7 @@ export class PlaceOrderComponent implements OnInit{
     this.selectedSymbol=this.symbolService.getSymbolById(this.symbolId);
     if(this.selectedSymbol){
       this.invalidSymbol=false;
-      this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,2))
+      this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.orderNumberSequence.getNextOrderNumber()))
       this.resetValues();
       this.hideModal();
     }else{
