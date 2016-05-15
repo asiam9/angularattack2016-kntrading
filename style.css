@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Source Sans Pro', sans-serif !important;
-    color: #1a252d;
+    color: #35454c;
 }
 
 /*NAVBAR*/
@@ -84,22 +84,31 @@ body {
 .green {
     color: #00d96e;
 }
-.green-dark, .green:hover {
+.green-dark {
     color: #00b55d;
 }
 .red {
-    color: #c7292a;
+    color: #FF0000;
 }
-.red-dark, .red:hover {
+.red-dark {
     color: #b71b1c;
 }
 .gray {
     color: #536d7a;
 }
+.gray {
+    color: #ebedec;
+}
 .gray-dark, .gray:hover {
     color: #1a252d;
 }
 /*COLORS*/
+
+/*TEXT STYLE*/
+.uppercase {
+    text-transform: uppercase;
+}
+/*TEXT STYLE*/
 
 /*MARGINS*/
 .m-t-10 {

@@ -68,7 +68,7 @@ System.register(["@angular/core", '../shared/order', '../../shared/symbol.servic
                 };
                 PlaceOrderComponent = __decorate([
                     core_1.Component({
-                        selector: 'place-order',
+                        selector: '[place-order]',
                         templateUrl: 'app/orders/place-order/place-order.component.html',
                         styleUrls: ['app/orders/place-order/place-order.component.css'],
                         providers: [symbol_service_1.SymbolsService, orders_service_1.OrdersService, order_number_sequence_service_1.OrderNumberSequence]

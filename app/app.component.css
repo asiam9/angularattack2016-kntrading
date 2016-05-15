@@ -1,21 +1,38 @@
+body {
+    overflow: hidden;
+}
 
+.pageContent{
   display: flex;
   flex-direction: column;
   display: -webkit-flex;
   -webkit-flex-direction: column;
   height: 100%;
-    flex: 0;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    -webkit-flex-grow: 0;
-    -webkit-flex-shrink: 1;
-    -webkit-flex-basis: 0;
-    flex:1;
-    overflow: auto;
+}
+
+.headerContainer{
+      flex: 0;
       flex-grow: 0;
       flex-shrink: 1;
       flex-basis: auto;
       -webkit-flex-grow: 0;
       -webkit-flex-shrink: 1;
       -webkit-flex-basis: 0;
+}
+
+.bodyContainer{
+
+  flex:1;
+  overflow: auto;
+}
+
+
+.footerContainer{
+    flex: 0;
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: auto;
+      -webkit-flex-grow: 0;
+      -webkit-flex-shrink: 1;
+      -webkit-flex-basis: 0;
+}
