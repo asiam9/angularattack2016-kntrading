@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router-deprecated', './pricing/market/market.component', './pricing/heatmap/heatmap.component', './watchlist/watchlist.component', './orders/place-order/place-order.component', './orders/order-monitor/order-monitor.component', './shared/footer/footer.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router-deprecated', './pricing/market/market.component', './pricing/heatmap/heatmap.component', './watchlist/watchlist.component', './orders/place-order/place-order.component', './orders/order-monitor/order-monitor.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router-deprecated', './pricing/marke
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_deprecated_1, market_component_1, heatmap_component_1, watchlist_component_1, place_order_component_1, order_monitor_component_1, footer_component_1;
+    var core_1, router_deprecated_1, market_component_1, heatmap_component_1, watchlist_component_1, place_order_component_1, order_monitor_component_1;
     var AppComponent;
     return {
         setters:[
@@ -34,30 +34,23 @@ System.register(['@angular/core', '@angular/router-deprecated', './pricing/marke
             },
             function (order_monitor_component_1_1) {
                 order_monitor_component_1 = order_monitor_component_1_1;
-            },
-            function (footer_component_1_1) {
-                footer_component_1 = footer_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
                 }
-                AppComponent.prototype.ngOnInit = function () {
-                    jQuery('[data-toggle="tooltip"]').tooltip();
-                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
                         templateUrl: 'app/app.component.html',
                         styleUrls: ['app/app.component.css'],
                         providers: [router_deprecated_1.ROUTER_PROVIDERS],
-                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, place_order_component_1.PlaceOrderComponent, footer_component_1.FooterComponent]
+                        directives: [router_deprecated_1.ROUTER_DIRECTIVES, place_order_component_1.PlaceOrderComponent]
                     }),
                     router_deprecated_1.RouteConfig([{
                             path: '/market',
                             name: 'Market',
-                            component: market_component_1.MarketComponent,
-                            useAsDefault: true
+                            component: market_component_1.MarketComponent
                         },
                         {
                             path: '/heatmap',

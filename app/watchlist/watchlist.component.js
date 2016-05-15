@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../watchlist/watchlist', '../shared/symbol.service', './watchlist.service', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
+System.register(['@angular/core', '../shared/symbol.service', './watchlist.service', 'ng2-bootstrap/ng2-bootstrap'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,12 @@ System.register(['@angular/core', '../watchlist/watchlist', '../shared/symbol.se
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, watchlist_1, symbol_service_1, watchlist_service_1, ng2_bootstrap_1;
+    var core_1, symbol_service_1, watchlist_service_1, ng2_bootstrap_1;
     var WatchListComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (watchlist_1_1) {
-                watchlist_1 = watchlist_1_1;
             },
             function (symbol_service_1_1) {
                 symbol_service_1 = symbol_service_1_1;
@@ -30,6 +27,7 @@ System.register(['@angular/core', '../watchlist/watchlist', '../shared/symbol.se
                 ng2_bootstrap_1 = ng2_bootstrap_1_1;
             }],
         execute: function() {
+            //declare var typeahead: any;
             WatchListComponent = (function () {
                 function WatchListComponent(watchlistService, symbolsService) {
                     this.watchlistService = watchlistService;
@@ -50,34 +48,6 @@ System.register(['@angular/core', '../watchlist/watchlist', '../shared/symbol.se
                 WatchListComponent.prototype.deleteWatchlist = function (watchlist) {
                     _.remove(this.watchlistArr, function (currentWatchlist) {
                         return watchlist.id == currentWatchlist.id;
-                    });
-                };
-                WatchListComponent.prototype.addWatchlist = function (currentName, valid, form) {
-                    // if(valid) {
-                    var newWatchlist = new watchlist_1.Watchlist(1, currentName, this.newWatchlistSymbols);
-                    this.watchlistArr.push(newWatchlist);
-                    //    }
-                };
-                WatchListComponent.prototype.typeaheadOnSelect = function (e) {
-                    if (!this.newWatchlistSymbols) {
-                        this.newWatchlistSymbols = [];
-                    }
-                    this.newWatchlistSymbols.push(e.item);
-                    e.item = {};
-                    this.selectedSymbols = [];
-                };
-                WatchListComponent.prototype.deleteSymbols = function (symbol) {
-                    _.remove(this.newWatchlistSymbols, function (currentSymbol) {
-                        return symbol.id == currentSymbol.id;
-                    });
-                };
-                WatchListComponent.prototype.editWatchlist = function (watchlist) {
-                    $('#watchListModal').modal('show');
-                    $('#watchListModal').on('shown.bs.modal', function (e) {
-                        console.log(e);
-                        $("#watchlist-name").val(watchlist.name);
-                        this.newWatchlistSymbols = watchlist.symbols;
-                        // do something...
                     });
                 };
                 WatchListComponent = __decorate([
