@@ -10,8 +10,8 @@ System.register(['./mock-market-symbols'], function(exports_1, context_1) {
             }],
         execute: function() {
             exports_1("MarketData", MarketData = {
-                "id": "DAUBI",
-                "name": "Mr. Nice",
+                "id": "Dow Jones",
+                "name": "DJ",
                 "marketStatusUrl": "../app/pricing/market/status.png",
                 "marketImageUrl": "../app/pricing/market/market.png",
                 "summary": {

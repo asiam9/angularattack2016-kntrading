@@ -65,6 +65,7 @@ a:focus, a:hover {
 }
 .btn {
     border-radius: 25px;
+    outline: 0;
 }
 .btn-green {
     background-color: #00d96e;
@@ -73,6 +74,15 @@ a:focus, a:hover {
 }
 .btn-green:hover {
     background-color: #00b55d;
+    color: #fff;
+}
+.btn-gray {
+    background-color: #ebedec;
+    color: #536d7a;
+    transition: all ease 0.5s;
+}
+.btn-gray:hover {
+    background-color: #536d7a;
     color: #fff;
 }
 .btn-circle {
@@ -106,6 +116,16 @@ a:focus, a:hover {
 }
 .acti-btn:hover .fa-pencil-square-o {
     color: #1c89e6;
+}
+button.acti-btn, .btn-non-bg {
+    background-color: transparent;
+    border: 0;
+}
+.fa-trash-o {
+    color: #FF0000;
+}
+.fa-trash-o:hover {
+    color: #b71b1c;
 }
 /*BUTTONS*/
 
