@@ -233,16 +233,24 @@ thead {
     border-color: 2px solid #00d96e !important;
 }
 /*Tables*/
+/*MENU*/
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle .icon-bar {
+    background-color: #00d96e;
+}
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle {
+    border-color: #00d96e;
+}
+
+button.navbar-toggle.collapsed {
+    margin-right: 30px;
+}
+
+/*MENU*/
 
 /*MODALS*/
-/*
-.modal-content {
-    background-color: #25323C;
-}
-.close:focus, .close:hover {
-    color: #fff;
-}
-*/
 .modal-content h4, .modal-content label {
     color: #536d7a;
     font-weight: normal;
