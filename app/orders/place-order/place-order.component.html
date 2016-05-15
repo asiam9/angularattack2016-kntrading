@@ -16,13 +16,25 @@
 
        <form class="form-horizontal" #poForm="ngForm" >
 
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group" >
+           <label for="symbol" class="control-label">Symbol<span *ngIf="formSubmitted && !selectedSymbol" class="red p-l-5">
          <div class="form-group">
            <label for="symbol" class="col-sm-2 control-label">Symbol</label>
            <div class="col-sm-4" >
-             <input type="text" class="form-control"  id="symbol" [(ngModel)]="symbolId"  [typeahead]="symbolsList"  [typeaheadOptionField]="'changeDirection'"  placeholder="Symbol" required>
+             <input type="text" class="form-control"  id="symbol" [(ngModel)]="symbolId"  ngControl="osymbol"  #osymbol="ngForm"   placeholder="Symbol" required>
            </div>
+             <div *ngIf="formSubmitted && !selectedSymbol" class=" col-sm-6 alert alert-danger">
+               please enter a valid symbol
+            </span></label>
+             <input type="text" class="form-control"  id="symbol" [(ngModel)]="symbolId"  ngControl="osymbol"  #osymbol="ngForm"   placeholder="Symbol" required>
+           </div>
+             
          </div>
 
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group">
+           <label for="quantity" class="">Quantity</label>
          <div class="form-group">
            <label for="quantity" class="col-sm-2 control-label">Quantity</label>
            <div class="col-sm-8">
@@ -30,6 +42,9 @@
            </div>
          </div>
 
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group">
+           <label for="price" class="">Price</label>
          <div class="form-group">
            <label for="price" class="col-sm-2 control-label">Price</label>
            <div class="col-sm-8">
@@ -37,10 +52,11 @@
            </div>
          </div>
 
-         <div class="form-group">
-           <label  class="col-sm-4 control-label">Trade Amount</label>
-           <div class="col-sm-4">{{getTradeAmount()}}</div>
-         </div>
+        <div class="col-md-10 col-md-offset-1 total-amount">
+            <div class="col-md-4 total-value"><label class="form-group">Trade Amount</label></div>
+           
+            <div class="col-md-8 total-value">{{getTradeAmount()}}</div>
+        </div>
 
        </form>
 
@@ -50,8 +66,8 @@
 
    </div>
    <div class="modal-footer">
-     <button type="button" class="btn btn-primary btn-default"   (click)="addOrder(true)" [disabled]="!poForm.form.valid">Buy</button>
-     <button type="button" class="btn btn-danger btn-default" (click)="addOrder(false)" [disabled]="!poForm.form.valid">Sell</button>
+     <button type="button" class="btn btn-green btn-medium"   (click)="addOrder(true)" [disabled]="!poForm.form.valid">Buy</button>
+     <button type="button" class="btn btn-danger btn-medium" (click)="addOrder(false)" [disabled]="!poForm.form.valid">Sell</button>
    </div>
  </div>
 </div>

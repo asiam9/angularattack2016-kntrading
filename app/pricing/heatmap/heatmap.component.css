@@ -49,3 +49,10 @@
     padding: 20px;
     height: 100%;
 }
+
+.label {
+    font-weight: 800;
+    color: #1a252d;
+    font-size: 15;
+}
+

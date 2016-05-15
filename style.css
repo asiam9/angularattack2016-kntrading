@@ -60,6 +60,12 @@ a:focus, a:hover {
     text-decoration: none;
     outline: 0;
 }
+.btn-medium {
+    width: 120px;
+}
+.btn {
+    border-radius: 25px;
+}
 .btn-green {
     background-color: #00d96e;
     color: #fff;
@@ -169,6 +175,9 @@ a:focus, a:hover {
 .p-t-10 {
     padding-top: 10px;
 }
+.p-l-5 {
+    padding-left: 5px;
+}
 /*MARGINS*/
 
 
@@ -192,3 +201,21 @@ thead {
     border-color: 2px solid #00d96e !important;
 }
 /*Tables*/
+
+/*MODALS*/
+/*
+.modal-content {
+    background-color: #25323C;
+}
+.close:focus, .close:hover {
+    color: #fff;
+}
+*/
+.modal-content h4, .modal-content label {
+    color: #536d7a;
+    font-weight: normal;
+}
+.close:focus, .close:hover {
+    color: #fff;
+}
+/*MODALS*/

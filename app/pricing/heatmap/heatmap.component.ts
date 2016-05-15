@@ -1,6 +1,9 @@
 import {Component,OnInit,ElementRef} from '@angular/core';
-import {SymbolsService} from '../../shared/symbol.service';
-import {Symbol} from '../../shared/symbol';
+import {MarketService} from '../shared/market.service';
+import {MarketSymbol} from '../shared/market-symbol';
+import {StockTimer} from '../shared/StockTimer';
+import {OrderBy} from './orderby.pipe';
+
 
 
 declare var Rainbow: any;
@@ -11,23 +14,25 @@ declare var CanvasJS: any;
   selector: 'heatmap',
   templateUrl : 'app/pricing/heatmap/heatmap.component.html',
   styleUrls:  ['app/pricing/heatmap/heatmap.component.css'],
-  providers: [SymbolsService]
+  providers: [MarketService],
+  pipes: [OrderBy]
 })
 
 
 export class HeatMapComponent implements OnInit {
+  stockTimer:StockTimer;
   rainbow : any;
   boxHeight : number = 33.5;
   boxWidth : number = 33.5;
-  symbolsList :Symbol[];
+  symbolsList :MarketSymbol[];
   zoomDegree : number;
   jQuery: any;
   boxMargin:number;
   chart:any;
 
-  constructor(private symbolService: SymbolsService ,public element:ElementRef) {
+  constructor(private symbolService: MarketService ,public element:ElementRef) {
     this.rainbow = new Rainbow();
-    symbolService.getSymbolsList().then(symbolsList => this.symbolsList = symbolsList);
+    this.symbolsList = symbolService.getMarketSymbols();
     this.zoomDegree = 1;
     this.boxMargin = .9;
   }
@@ -39,6 +44,8 @@ export class HeatMapComponent implements OnInit {
     this.rainbow.setNumberRange(0,this.symbolsList.length);
     this.boxHeight = (window.innerWidth * this.boxMargin) / ( 13 / this.zoomDegree);
     this.boxWidth = (window.innerWidth * this.boxMargin) / ( 13 / this.zoomDegree);
+    this.stockTimer = new StockTimer(this.symbolsList);
+    this.stockTimer.start();
   }
   zoomIn(){
     if(this.zoomDegree === 1)
@@ -104,10 +111,10 @@ export class HeatMapComponent implements OnInit {
     this.boxWidth = (window.innerWidth * this.boxMargin) / ( 13 / this.zoomDegree);
   }
 
-  getChange(symbol : Symbol){
-    if(symbol.changeDirection == '+')
+  getChange(symbol : MarketSymbol){
+    if(symbol.changeDirection === 1)
     return "app/img/up.png";
-    else if (symbol.changeDirection == '-')
+    else if (symbol.changeDirection === 0)
     return "app/img/down.png";
   }
 }
