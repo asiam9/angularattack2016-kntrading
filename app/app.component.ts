@@ -5,7 +5,7 @@ import {HeatMapComponent} from './pricing/heatmap/heatmap.component';
 import {WatchListComponent} from './watchlist/watchlist.component';
 import {PlaceOrderComponent} from './orders/place-order/place-order.component';
 import {OrderMonitorComponent} from './orders/order-monitor/order-monitor.component';
-
+import { FooterComponent } from './shared/footer/footer.component';
 declare var jQuery:any;
 
 @Component({
@@ -13,7 +13,7 @@ declare var jQuery:any;
   templateUrl: 'app/app.component.html',
   styleUrls:['app/app.component.css'],
   providers:[ROUTER_PROVIDERS],
-  directives:[ROUTER_DIRECTIVES,PlaceOrderComponent]
+  directives:[ROUTER_DIRECTIVES,PlaceOrderComponent,FooterComponent]
 })
 @RouteConfig([{
   path:'/market',
