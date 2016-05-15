@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {SYMBOLS} from './mock-symbol';
+import {SYMBOLS} from '../pricing/shared/mock-market-symbols';
 
 
 

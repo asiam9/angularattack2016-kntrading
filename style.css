@@ -5,7 +5,15 @@ body {
     color: #fff;
     background-color: #1a252d;
 }
+::-moz-selection { /* Code for Firefox */
+    color: #1a252d;
+    background: #00d96e;
+}
 
+::selection {
+    color: #1a252d; 
+    background: #00d96e;
+}
 /*NAVBAR*/
 .navbar-default {
     border-top: 2px solid #00d96e;
@@ -60,6 +68,13 @@ a:focus, a:hover {
     text-decoration: none;
     outline: 0;
 }
+.btn-medium {
+    width: 120px;
+}
+.btn {
+    border-radius: 25px;
+    outline: 0;
+}
 .btn-green {
     background-color: #00d96e;
     color: #fff;
@@ -67,6 +82,15 @@ a:focus, a:hover {
 }
 .btn-green:hover {
     background-color: #00b55d;
+    color: #fff;
+}
+.btn-gray {
+    background-color: #ebedec;
+    color: #536d7a;
+    transition: all ease 0.5s;
+}
+.btn-gray:hover {
+    background-color: #536d7a;
     color: #fff;
 }
 .btn-circle {
@@ -100,6 +124,16 @@ a:focus, a:hover {
 }
 .acti-btn:hover .fa-pencil-square-o {
     color: #1c89e6;
+}
+button.acti-btn, .btn-non-bg {
+    background-color: transparent;
+    border: 0;
+}
+.fa-trash-o {
+    color: #FF0000;
+}
+.fa-trash-o:hover {
+    color: #b71b1c;
 }
 /*BUTTONS*/
 
@@ -169,6 +203,21 @@ a:focus, a:hover {
 .p-t-10 {
     padding-top: 10px;
 }
+.p-l-5 {
+    padding-left: 5px;
+}
+.p-r-5 {
+    padding-right: 5px;
+}
+.f-s-20 {
+    font-size: 20px;
+}
+.f-s-25 {
+    font-size: 25px;
+}
+.f-s-30 {
+    font-size: 30px;
+}
 /*MARGINS*/
 
 
@@ -192,18 +241,27 @@ thead {
     border-color: 2px solid #00d96e !important;
 }
 /*Tables*/
+/*MENU*/
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle .icon-bar {
+    background-color: #00d96e;
+}
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: #fff;
+}
+.navbar-default .navbar-toggle {
+    border-color: #00d96e;
+}
+
+button.navbar-toggle.collapsed {
+    margin-right: 30px;
+}
+
+/*MENU*/
 
 /*MODALS*/
-/*
-.modal-content {
-    background-color: #25323C;
-}
-.close:focus, .close:hover {
-    color: #fff;
-}
-*/
 .modal-content h4, .modal-content label {
     color: #536d7a;
+    font-weight: normal;
 }
 .close:focus, .close:hover {
     color: #fff;
