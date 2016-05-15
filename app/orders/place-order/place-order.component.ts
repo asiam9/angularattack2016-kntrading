@@ -4,7 +4,7 @@ import {SymbolsService} from '../../shared/symbol.service';
 import {Symbol} from '../../shared/symbol';
 import {OrdersService} from '../shared/orders.service';
 import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
-import {SequanceGeneratorService} from '../../shared/sequance-generator.service';
+import {SequenceGeneratorService} from '../../shared/sequence-generator.service';
 
 declare var jQuery:any;
 
@@ -13,7 +13,7 @@ declare var jQuery:any;
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
   directives:[TYPEAHEAD_DIRECTIVES],
-  providers:[SymbolsService,OrdersService,SequanceGeneratorService]
+  providers:[SymbolsService,OrdersService,SequenceGeneratorService]
 })
 
 export class PlaceOrderComponent implements OnInit{
@@ -31,7 +31,7 @@ export class PlaceOrderComponent implements OnInit{
     this.symbolService.getSymbolsList().then(symbols=>this.symbolsList=symbols);
   }
 
-  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private sequenceGenerator:SequanceGeneratorService) {
+  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private sequenceGenerator:SequenceGeneratorService) {
 
  }
 
