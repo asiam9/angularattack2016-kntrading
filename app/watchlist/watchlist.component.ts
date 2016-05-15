@@ -51,8 +51,10 @@ export class WatchListComponent implements OnInit{
             this.watchlistArr.push(this.watchlist);
         //}
     }
-    public typeaheadOnSelect(e:any):void {
-        newWatchlistSymbols:Symbol[];
+    typeaheadOnSelect(e:any) {
+        if(!this.newWatchlistSymbols) {
+            this.newWatchlistSymbols = [];
+        }
         this.newWatchlistSymbols.push(e.item);
         this.selectedSymbols=[];
     }
