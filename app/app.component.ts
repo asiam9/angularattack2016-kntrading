@@ -16,7 +16,8 @@ import {OrderMonitorComponent} from './orders/order-monitor/order-monitor.compon
 @RouteConfig([{
   path:'/market',
   name:'Market',
-  component:MarketComponent
+  component:MarketComponent,
+  useAsDefault:true
 },
 {
   path:'/heatmap',
