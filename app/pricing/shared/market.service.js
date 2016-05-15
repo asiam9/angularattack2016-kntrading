@@ -33,6 +33,9 @@ System.register(['./mock-market', './mock-market-symbols', '@angular/core'], fun
                 MarketService.prototype.getMarketSymbols = function () {
                     return mock_market_symbols_1.SYMBOLS;
                 };
+                MarketService.prototype.getMarketSymbolById = function (symbolId) {
+                    return mock_market_symbols_1.SYMBOLS.filter(function (symbol) { return symbol.id === symbolId; })[0];
+                };
                 MarketService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])

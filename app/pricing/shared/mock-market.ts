@@ -3,8 +3,8 @@ import {SYMBOLS} from './mock-market-symbols';
 
 
 export var MarketData: Market = {
-	"id": "DAUBI",
-	"name": "Mr. Nice",
+	"id": "Dow Jones",
+	"name": "DJ",
  	"marketStatusUrl":"../app/pricing/market/status.png",
   "marketImageUrl":"../app/pricing/market/market.png",
 	"summary": {

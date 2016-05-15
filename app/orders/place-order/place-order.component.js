@@ -1,4 +1,4 @@
-System.register(["@angular/core", '../shared/order', '../../shared/symbol.service', '../shared/orders.service', '../shared/order-number-sequence.service'], function(exports_1, context_1) {
+System.register(["@angular/core", '../shared/order', '../../pricing/shared/market.service', '../shared/orders.service', 'ng2-bootstrap/ng2-bootstrap', '../../shared/sequence-generator.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["@angular/core", '../shared/order', '../../shared/symbol.servic
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, order_1, symbol_service_1, orders_service_1, order_number_sequence_service_1;
+    var core_1, order_1, market_service_1, orders_service_1, ng2_bootstrap_1, sequence_generator_service_1;
     var PlaceOrderComponent;
     return {
         setters:[
@@ -20,26 +20,30 @@ System.register(["@angular/core", '../shared/order', '../../shared/symbol.servic
             function (order_1_1) {
                 order_1 = order_1_1;
             },
-            function (symbol_service_1_1) {
-                symbol_service_1 = symbol_service_1_1;
+            function (market_service_1_1) {
+                market_service_1 = market_service_1_1;
             },
             function (orders_service_1_1) {
                 orders_service_1 = orders_service_1_1;
             },
-            function (order_number_sequence_service_1_1) {
-                order_number_sequence_service_1 = order_number_sequence_service_1_1;
+            function (ng2_bootstrap_1_1) {
+                ng2_bootstrap_1 = ng2_bootstrap_1_1;
+            },
+            function (sequence_generator_service_1_1) {
+                sequence_generator_service_1 = sequence_generator_service_1_1;
             }],
         execute: function() {
             PlaceOrderComponent = (function () {
-                function PlaceOrderComponent(symbolService, ordersService, orderNumberSequence) {
-                    this.symbolService = symbolService;
+                function PlaceOrderComponent(marketService, ordersService, sequenceGenerator) {
+                    this.marketService = marketService;
                     this.ordersService = ordersService;
-                    this.orderNumberSequence = orderNumberSequence;
+                    this.sequenceGenerator = sequenceGenerator;
                     this.invalidSymbol = false;
                     this.formSubmitted = false;
                 }
                 PlaceOrderComponent.prototype.ngOnInit = function () {
                     jQuery('[data-toggle="tooltip"]').tooltip();
+                    this.symbolsList = this.marketService.getMarketSymbols();
                 };
                 PlaceOrderComponent.prototype.getTradeAmount = function () {
                     var tradeAmount = this.quantity * this.price;
@@ -55,10 +59,10 @@ System.register(["@angular/core", '../shared/order', '../../shared/symbol.servic
                 };
                 PlaceOrderComponent.prototype.addOrder = function (isBus) {
                     this.formSubmitted = true;
-                    this.selectedSymbol = this.symbolService.getSymbolById(this.symbolId);
+                    this.selectedSymbol = this.marketService.getMarketSymbolById(this.symbolId);
                     if (this.selectedSymbol) {
                         this.invalidSymbol = false;
-                        this.ordersService.addOrder(new order_1.Order(this.selectedSymbol, this.quantity, this.price, isBus, this.orderNumberSequence.getNextOrderNumber()));
+                        this.ordersService.addOrder(new order_1.Order(this.selectedSymbol, this.quantity, this.price, isBus, this.sequenceGenerator.getNextSequence('order')));
                         this.resetValues();
                         this.hideModal();
                     }
@@ -68,12 +72,13 @@ System.register(["@angular/core", '../shared/order', '../../shared/symbol.servic
                 };
                 PlaceOrderComponent = __decorate([
                     core_1.Component({
-                        selector: 'place-order',
+                        selector: '[place-order]',
                         templateUrl: 'app/orders/place-order/place-order.component.html',
                         styleUrls: ['app/orders/place-order/place-order.component.css'],
-                        providers: [symbol_service_1.SymbolsService, orders_service_1.OrdersService, order_number_sequence_service_1.OrderNumberSequence]
+                        directives: [ng2_bootstrap_1.TYPEAHEAD_DIRECTIVES],
+                        providers: [market_service_1.MarketService, orders_service_1.OrdersService, sequence_generator_service_1.SequenceGeneratorService]
                     }), 
-                    __metadata('design:paramtypes', [symbol_service_1.SymbolsService, orders_service_1.OrdersService, order_number_sequence_service_1.OrderNumberSequence])
+                    __metadata('design:paramtypes', [market_service_1.MarketService, orders_service_1.OrdersService, sequence_generator_service_1.SequenceGeneratorService])
                 ], PlaceOrderComponent);
                 return PlaceOrderComponent;
             }());
