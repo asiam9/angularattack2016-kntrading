@@ -10,10 +10,10 @@
     <div class="col-md-3" *ngFor="let watchList of watchlistArr">
         <div class="card">
             <div class="card-header">
-                <h4 class="gray">{{watchList.name}}</h4>
+                <h4 class="">{{watchList.name}}</h4>
                 <div class="action-btn">
                     <a href="" class="acti-btn red" (click)="deleteWatchlist(watchList)"><i class="fa fa-trash-o"></i> </a>
-                    <a href="" class="acti-btn gray" (click)="editWatchlist(watchList)"><i class="fa fa-pencil-square-o"></i> </a>
+                    <a href="" class="acti-btn blue" (click)="editWatchlist(watchList)"><i class="fa fa-pencil-square-o"></i> </a>
                 </div>
             </div>
             <div class="card-block">

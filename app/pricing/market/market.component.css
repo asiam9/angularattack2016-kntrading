@@ -8,16 +8,11 @@
 }
 .status-head {
     padding: 15px;
-    background-color: #30444E;
+    border: 1px solid #536d7a;
     color: #fff;
     margin: 0 0 15px;
 }
 
 .head-tit {
     font-weight: 600;
-}
-thead {
-    border-top: 2px solid #30444E;
-/*    background-color: rgba(255, 255, 255, 0.8);*/
-    box-shadow: 0 0 5px 3px #ccc;
 }
