@@ -5,7 +5,15 @@ body {
     color: #fff;
     background-color: #1a252d;
 }
+::-moz-selection { /* Code for Firefox */
+    color: #1a252d;
+    background: #00d96e;
+}
 
+::selection {
+    color: #1a252d; 
+    background: #00d96e;
+}
 /*NAVBAR*/
 .navbar-default {
     border-top: 2px solid #00d96e;
