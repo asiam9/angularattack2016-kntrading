@@ -77,6 +77,7 @@ export class WatchListComponent implements OnInit {
         //    this.newWatchlistSymbols = [];
         //}
         this.watchlist.symbols.push(e.item);
+        this.selectedWatchListName=undefined;
         //$("#watchlist-symbol").val('');
         //e.item = {};
        // this.selectedSymbols = [];
