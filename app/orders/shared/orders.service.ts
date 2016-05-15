@@ -8,7 +8,6 @@ export class OrdersService {
   constructor() { }
 
   addOrder(order:Order){
-    console.log(order);
     ORDERS.push(order);
   }
 

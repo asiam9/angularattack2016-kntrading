@@ -20,6 +20,8 @@ export class WatchListComponent implements OnInit{
     watchlistSymbols:Symbol [];
     selectedWatchlist: Watchlist;
     symbols: Symbol [];
+    selectedSymbols: Symbol[];
+    newWatchlistSymbols:Symbol[];
     constructor(private watchlistService: WatchlistService,private symbolsService: SymbolsService) { }
 
     getWatchlists() {
@@ -43,16 +45,21 @@ export class WatchListComponent implements OnInit{
         });
 
     }
-   /* addWatchlist(name:string,symbols:string,valid:boolean,form:Object) {
-        if(valid){
-            this.symbols=symbols.split(',');
-          //  this.watchlist = new Watchlist(name,this.symbols);
+    addWatchlist(name:string) {
+        /*if(valid){*/
+
             this.watchlistArr.push(this.watchlist);
-        }
-    }*/
-   /* getWatchlistSymbols(watchlist: Watchlist){
-        this.selectedWatchlist=watchlist;
-      //  this.watchlistSymbols=this.selectedWatchlist.symbols;
-    }*/
+        //}
+    }
+    public typeaheadOnSelect(e:any):void {
+        newWatchlistSymbols:Symbol[];
+        this.newWatchlistSymbols.push(e.item);
+        this.selectedSymbols=[];
+    }
+
+    /* getWatchlistSymbols(watchlist: Watchlist){
+         this.selectedWatchlist=watchlist;
+       //  this.watchlistSymbols=this.selectedWatchlist.symbols;
+     }*/
 
 }
