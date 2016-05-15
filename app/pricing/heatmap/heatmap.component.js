@@ -1,4 +1,4 @@
-System.register(['@angular/core', '../../shared/symbol.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '../shared/market.service', '../shared/StockTimer', './orderby.pipe'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,26 +10,31 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, symbol_service_1;
+    var core_1, market_service_1, StockTimer_1, orderby_pipe_1;
     var HeatMapComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (symbol_service_1_1) {
-                symbol_service_1 = symbol_service_1_1;
+            function (market_service_1_1) {
+                market_service_1 = market_service_1_1;
+            },
+            function (StockTimer_1_1) {
+                StockTimer_1 = StockTimer_1_1;
+            },
+            function (orderby_pipe_1_1) {
+                orderby_pipe_1 = orderby_pipe_1_1;
             }],
         execute: function() {
             HeatMapComponent = (function () {
                 function HeatMapComponent(symbolService, element) {
-                    var _this = this;
                     this.symbolService = symbolService;
                     this.element = element;
                     this.boxHeight = 33.5;
                     this.boxWidth = 33.5;
                     this.rainbow = new Rainbow();
-                    symbolService.getSymbolsList().then(function (symbolsList) { return _this.symbolsList = symbolsList; });
+                    this.symbolsList = symbolService.getMarketSymbols();
                     this.zoomDegree = 1;
                     this.boxMargin = .9;
                 }
@@ -37,10 +42,12 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                     this.symbolsList.sort(function (a, b) {
                         return b.changePercent - a.changePercent;
                     });
-                    this.rainbow.setSpectrum('#00FF00', '#FFFFFF', '#FF0000');
+                    this.rainbow.setSpectrum('#00d96e', '#FFFFFF', '#FF0000');
                     this.rainbow.setNumberRange(0, this.symbolsList.length);
                     this.boxHeight = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                     this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
+                    this.stockTimer = new StockTimer_1.StockTimer(this.symbolsList);
+                    this.stockTimer.start();
                 };
                 HeatMapComponent.prototype.zoomIn = function () {
                     if (this.zoomDegree === 1)
@@ -107,9 +114,9 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                     this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                 };
                 HeatMapComponent.prototype.getChange = function (symbol) {
-                    if (symbol.changeDirection == '+')
+                    if (symbol.changeDirection === 1)
                         return "app/img/up.png";
-                    else if (symbol.changeDirection == '-')
+                    else if (symbol.changeDirection === 0)
                         return "app/img/down.png";
                 };
                 HeatMapComponent = __decorate([
@@ -117,9 +124,10 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                         selector: 'heatmap',
                         templateUrl: 'app/pricing/heatmap/heatmap.component.html',
                         styleUrls: ['app/pricing/heatmap/heatmap.component.css'],
-                        providers: [symbol_service_1.SymbolsService]
+                        providers: [market_service_1.MarketService],
+                        pipes: [orderby_pipe_1.OrderBy]
                     }), 
-                    __metadata('design:paramtypes', [symbol_service_1.SymbolsService, core_1.ElementRef])
+                    __metadata('design:paramtypes', [market_service_1.MarketService, core_1.ElementRef])
                 ], HeatMapComponent);
                 return HeatMapComponent;
             }());

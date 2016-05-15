@@ -1,27 +1,27 @@
 
   <div class="row">
       <div class="container-flex">
-        <div *ngFor="let symbol of symbolsList ; let i = index" class="heatMapBox"  [ngStyle]="{'min-height':boxHeight + 'px','height':boxHeight + 'px','width':boxWidth +'px','min-wdith':boxWidth +'px','background-color': '#'+rainbow.colourAt(i)}" >
+        <div *ngFor="let symbol of symbolsList  | orderBy : ['-changePercent'] ; let i = index" class="heatMapBox"  [ngStyle]="{'min-height':boxHeight + 'px','height':boxHeight + 'px','width':boxWidth +'px','min-wdith':boxWidth +'px','background-color': '#'+rainbow.colourAt(i)}" >
           <div *ngIf="zoomDegree == 1">
             <div>{{symbol.id}}</div>
-            <div>{{symbol.lastPrice}}</div>
+            <div>{{symbol.lastPrice.value}}</div>
             <div>{{symbol.change}}&#40;{{symbol.changePercent}}&#37;&#41;</div>
           </div>
           <div *ngIf="zoomDegree == 3">
             <div><span>{{symbol.id}}</span> <span>{{symbol.name}}</span></div>
-            <div><span>{{symbol.lastPrice}}</span> <img src="{{getChange(symbol)}}"/></div>
+            <div><span>{{symbol.lastPrice.value}}</span> <img src="{{getChange(symbol)}}"/></div>
             <div><span>{{symbol.change}}</span> <span>&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
             <div><span>Trades:</span><span>{{symbol.lastTradeQuantity}}</span></div>
-            <div><span>Best Offer:</span><span>{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
-            <div><span>Best Bid:</span> <span>{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
+            <div><span>Best Offer:</span><span>{{symbol.offerPrice.value}}</span><span>&#40;{{symbol.offerSize.value}}&#41;</span></div>
+            <div><span>Best Bid:</span> <span>{{symbol.bidPrice.value}}</span><span>&#40;{{symbol.bidSize.value}}&#41;</span></div>
           </div>
           <div class="large-view" *ngIf="zoomDegree == 13">
             <div><span>{{symbol.id}}</span> <span>{{symbol.name}}</span></div>
-            <div><span>{{symbol.lastPrice}}</span> <img src="{{getChange(symbol)}}"/></div>
+            <div><span>{{symbol.lastPrice.value}}</span> <img src="{{getChange(symbol)}}"/></div>
             <div><span>{{symbol.change}}</span> <span>&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
-            <div><span>Trades:</span><span>{{symbol.lastTradeQuantity}}</span></div>
-            <div><span>Best Offer:</span><span>{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
-            <div><span>Best Bid:</span> <span>{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
+            <div><span>Trades:</span><span>{{symbol.lastTradeQuantity.value}}</span></div>
+            <div><span>Best Offer:</span><span>{{symbol.offerPrice.value}}</span><span>&#40;{{symbol.offerSize.value}}&#41;</span></div>
+            <div><span>Best Bid:</span> <span>{{symbol.bidPrice.value}}</span><span>&#40;{{symbol.bidSize.value}}&#41;</span></div>
             <div id="{{symbol.name+i}}" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
