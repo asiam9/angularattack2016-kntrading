@@ -47,8 +47,8 @@
                                class="form-control" id="watchlist-symbols" placeholder="+ Add symbol" required >
                     </div>
                     <div *ngFor="let symbol of newWatchlistSymbols">
-                        <span>{{symbol.name}}</span>
-                        <button type="button" class="glyphicon-trash" (click)="deleteSymbols(symbol)"></button>
+                        <button type="button" class="btn-non-bg" (click)="deleteSymbols(symbol)"><i class="fa fa-trash-o"></i></button>
+                        <label>{{symbol.name}}</label>
                     </div>
                 </form>
             </div>

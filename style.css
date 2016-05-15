@@ -117,9 +117,15 @@ a:focus, a:hover {
 .acti-btn:hover .fa-pencil-square-o {
     color: #1c89e6;
 }
-button.acti-btn {
+button.acti-btn, .btn-non-bg {
     background-color: transparent;
     border: 0;
+}
+.fa-trash-o {
+    color: #FF0000;
+}
+.fa-trash-o:hover {
+    color: #b71b1c;
 }
 /*BUTTONS*/
 
