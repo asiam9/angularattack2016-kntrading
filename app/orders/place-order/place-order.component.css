@@ -1,6 +1,21 @@
+.total-amount {
+    background-color: #536d7a;
+    color: #fff;
+}
+
+.total-amount label {
+    color: #fff;
+    font-weight: 600;
+}
+
+.total-value {
+    position: relative;
+    top: 7px;
+}
+
 .ng-valid[required] {
-  border-left: 5px solid #42A948; /* green */
+  border-left: 5px solid #00d96e; /* green */
 }
 .ng-invalid {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid #FF0000; /* red */
 }
