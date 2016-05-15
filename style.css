@@ -192,3 +192,20 @@ thead {
     border-color: 2px solid #00d96e !important;
 }
 /*Tables*/
+
+/*MODALS*/
+/*
+.modal-content {
+    background-color: #25323C;
+}
+.close:focus, .close:hover {
+    color: #fff;
+}
+*/
+.modal-content h4, .modal-content label {
+    color: #536d7a;
+}
+.close:focus, .close:hover {
+    color: #fff;
+}
+/*MODALS*/

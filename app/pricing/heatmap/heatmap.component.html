@@ -8,20 +8,20 @@
             <div>{{symbol.change}}&#40;{{symbol.changePercent}}&#37;&#41;</div>
           </div>
           <div *ngIf="zoomDegree == 3">
-            <div><span>{{symbol.id}}</span> <span>{{symbol.name}}</span></div>
-            <div><span>{{symbol.lastPrice}}</span> <img src="{{getChange(symbol)}}"/></div>
-            <div><span>{{symbol.change}}</span> <span>&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
-            <div><span>Trades:</span><span>{{symbol.lastTradeQuantity}}</span></div>
-            <div><span>Best Offer:</span><span>{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
-            <div><span>Best Bid:</span> <span>{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
+            <div><span>{{symbol.id}}</span> <span class="label">{{symbol.name}}</span></div>
+            <div><span>{{symbol.lastPrice}}</span> <img style="width:25px;" src="{{getChange(symbol)}}"/></div>
+            <div><span>{{symbol.change}}</span> <span class="label">&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
+            <div><span>Trades:</span><span class="label">{{symbol.lastTradeQuantity}}</span></div>
+            <div><span>Best Offer:</span><span class="label">{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
+            <div><span>Best Bid:</span> <span class="label">{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
           </div>
           <div class="large-view" *ngIf="zoomDegree == 13">
-            <div><span>{{symbol.id}}</span> <span>{{symbol.name}}</span></div>
-            <div><span>{{symbol.lastPrice}}</span> <img src="{{getChange(symbol)}}"/></div>
-            <div><span>{{symbol.change}}</span> <span>&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
+            <div><span>{{symbol.id}}</span> <span class="label">{{symbol.name}}</span></div>
+            <div><span>{{symbol.lastPrice}}</span> <img style="width:25px;" src="{{getChange(symbol)}}"/></div>
+            <div><span>{{symbol.change}}</span> <span class="label">&#40;{{symbol.changePercent}}&#37;&#41;</span></div>
             <div><span>Trades:</span><span>{{symbol.lastTradeQuantity}}</span></div>
-            <div><span>Best Offer:</span><span>{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
-            <div><span>Best Bid:</span> <span>{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
+            <div><span>Best Offer:</span><span class="label">{{symbol.offerPrice}}</span><span>&#40;{{symbol.offerSize}}&#37;&#41;</span></div>
+            <div><span>Best Bid:</span> <span class="label">{{symbol.bidPrice}}</span><span>&#40;{{symbol.bidSize}}&#37;&#41;</span></div>
             <div id="{{symbol.name+i}}" style="height: 300px; width: 100%;"></div>
         </div>
       </div>
