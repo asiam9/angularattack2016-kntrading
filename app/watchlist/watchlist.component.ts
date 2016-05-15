@@ -45,12 +45,10 @@ export class WatchListComponent implements OnInit{
 
     }
     addWatchlist(currentName:string,valid:boolean,form:Object) {
-        if(valid) {
-            var newWatchlist = new Watchlist();
-            newWatchlist.name = currentName;
-            newWatchlist.symbols = this.newWatchlistSymbols;
+       // if(valid) {
+            var newWatchlist = new Watchlist(1,currentName,this.newWatchlistSymbols);
             this.watchlistArr.push(newWatchlist);
-        }
+    //    }
 
     }
     typeaheadOnSelect(e:any) {
@@ -66,10 +64,10 @@ export class WatchListComponent implements OnInit{
             return symbol.id  == currentSymbol.id;
         });
     }
-    editWatchlist(watchlist:Watchlist){
+    /*editWatchlist(watchlist:Watchlist){
 
 
-    }
+    }*/
     /* getWatchlistSymbols(watchlist: Watchlist){
          this.selectedWatchlist=watchlist;
        //  this.watchlistSymbols=this.selectedWatchlist.symbols;
