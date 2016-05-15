@@ -16,5 +16,9 @@ export class MarketService {
         return SYMBOLS
     }
 
+    getMarketSymbolById(symbolId:string){
+      return SYMBOLS.filter(symbol=>symbol.id === symbolId)[0];
+    }
+
 
 }

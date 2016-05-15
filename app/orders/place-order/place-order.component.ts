@@ -1,7 +1,7 @@
 import {Component,ElementRef,OnInit} from "@angular/core";
 import {Order} from '../shared/order';
-import {SymbolsService} from '../../shared/symbol.service';
-import {Symbol} from '../../shared/symbol';
+import {MarketSymbol} from '../../pricing/shared/market-symbol';
+import {MarketService} from '../../pricing/shared/market.service';
 import {OrdersService} from '../shared/orders.service';
 import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 import {SequenceGeneratorService} from '../../shared/sequence-generator.service';
@@ -13,7 +13,7 @@ declare var jQuery:any;
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
   directives:[TYPEAHEAD_DIRECTIVES],
-  providers:[SymbolsService,OrdersService,SequenceGeneratorService]
+  providers:[MarketService,OrdersService,SequenceGeneratorService]
 })
 
 export class PlaceOrderComponent implements OnInit{
@@ -21,17 +21,17 @@ export class PlaceOrderComponent implements OnInit{
   symbolId:string;
   price:number;
   quantity:number;
-  selectedSymbol:Symbol;
+  selectedSymbol:MarketSymbol;
   invalidSymbol:boolean=false;
   formSubmitted:boolean=false;
-  symbolsList:Symbol[];
+  symbolsList:MarketSymbol[];
 
   ngOnInit(){
     jQuery('[data-toggle="tooltip"]').tooltip();
-    this.symbolService.getSymbolsList().then(symbols=>this.symbolsList=symbols);
+    this.symbolsList=this.marketService.getMarketSymbols();
   }
 
-  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private sequenceGenerator:SequenceGeneratorService) {
+  constructor(private marketService:MarketService,private ordersService:OrdersService,private sequenceGenerator:SequenceGeneratorService) {
 
  }
 
@@ -51,7 +51,7 @@ export class PlaceOrderComponent implements OnInit{
 
   addOrder(isBus:boolean){
     this.formSubmitted=true;
-    this.selectedSymbol=this.symbolService.getSymbolById(this.symbolId);
+    this.selectedSymbol=this.marketService.getMarketSymbolById(this.symbolId);
     if(this.selectedSymbol){
       this.invalidSymbol=false;
       this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.sequenceGenerator.getNextSequence('order')))
