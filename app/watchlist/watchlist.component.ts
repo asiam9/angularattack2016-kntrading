@@ -64,7 +64,7 @@ export class WatchListComponent implements OnInit {
     }
 
     getSymbols() {
-        this.symbolsService.getSymbolsList().then(watchlistSymbols => this.watchlistSymbols = watchlistSymbols);
+    //    this.symbolsService.getSymbolsList().then(watchlistSymbols => this.watchlistSymbols = watchlistSymbols);
     }
 
     ngOnInit() {

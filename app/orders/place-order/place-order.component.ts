@@ -43,6 +43,7 @@ export class PlaceOrderComponent implements OnInit{
     this.selectedSymbol=undefined;
     this.price=undefined;
     this.quantity=undefined;
+    this.formSubmitted=false;
   }
 
   symbolSelected(element:any){
