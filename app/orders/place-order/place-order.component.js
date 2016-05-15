@@ -38,7 +38,6 @@ System.register(["@angular/core", '../shared/order', '../../pricing/shared/marke
                     this.marketService = marketService;
                     this.ordersService = ordersService;
                     this.sequenceGenerator = sequenceGenerator;
-                    this.invalidSymbol = false;
                     this.formSubmitted = false;
                 }
                 PlaceOrderComponent.prototype.ngOnInit = function () {
@@ -51,23 +50,23 @@ System.register(["@angular/core", '../shared/order', '../../pricing/shared/marke
                 };
                 PlaceOrderComponent.prototype.resetValues = function () {
                     this.symbolId = undefined;
+                    this.selectedSymbol = undefined;
                     this.price = undefined;
                     this.quantity = undefined;
+                    this.formSubmitted = false;
+                };
+                PlaceOrderComponent.prototype.symbolSelected = function (element) {
+                    this.selectedSymbol = element.item;
                 };
                 PlaceOrderComponent.prototype.hideModal = function () {
                     jQuery('#myModal').modal('hide');
                 };
                 PlaceOrderComponent.prototype.addOrder = function (isBus) {
                     this.formSubmitted = true;
-                    this.selectedSymbol = this.marketService.getMarketSymbolById(this.symbolId);
                     if (this.selectedSymbol) {
-                        this.invalidSymbol = false;
                         this.ordersService.addOrder(new order_1.Order(this.selectedSymbol, this.quantity, this.price, isBus, this.sequenceGenerator.getNextSequence('order')));
                         this.resetValues();
                         this.hideModal();
-                    }
-                    else {
-                        this.invalidSymbol = true;
                     }
                 };
                 PlaceOrderComponent = __decorate([
