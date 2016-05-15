@@ -9,7 +9,7 @@ export class SequanceGeneratorService {
 
 getNextSequence(entity:string){
   let nextSequence:number=0;
-  if(entity==='place-order'){
+  if(entity==='order'){
     for (var index in ORDERS) {
       nextSequence=ORDERS[index].id>nextSequence?ORDERS[index].id:nextSequence;
     }

@@ -19,7 +19,7 @@
          <div class="form-group">
            <label for="symbol" class="col-sm-2 control-label">Symbol</label>
            <div class="col-sm-4" >
-             <input type="text" class="form-control"  id="symbol"  [typeahead]="symbolsList" [typeaheadOptionField]="'name'"  ngControl="osymbol"  #osymbol="ngForm"   placeholder="Symbol" required>
+             <input type="text" class="form-control"  id="symbol" [(ngModel)]="symbolId"  ngControl="osymbol"  #osymbol="ngForm"   placeholder="Symbol" required>
            </div>
              <div *ngIf="formSubmitted && !selectedSymbol" class=" col-sm-6 alert alert-danger">
                please enter a valid symbol

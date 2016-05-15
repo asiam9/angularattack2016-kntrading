@@ -3,8 +3,8 @@ import {Order} from '../shared/order';
 import {SymbolsService} from '../../shared/symbol.service';
 import {Symbol} from '../../shared/symbol';
 import {OrdersService} from '../shared/orders.service';
-import {OrderNumberSequence} from '../shared/order-number-sequence.service';
 import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
+import {SequanceGeneratorService} from '../../shared/sequance-generator.service';
 
 declare var jQuery:any;
 
@@ -13,7 +13,7 @@ declare var jQuery:any;
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
   directives:[TYPEAHEAD_DIRECTIVES],
-  providers:[SymbolsService,OrdersService,OrderNumberSequence]
+  providers:[SymbolsService,OrdersService,SequanceGeneratorService]
 })
 
 export class PlaceOrderComponent implements OnInit{
@@ -31,7 +31,7 @@ export class PlaceOrderComponent implements OnInit{
     this.symbolService.getSymbolsList().then(symbols=>this.symbolsList=symbols);
   }
 
-  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) {
+  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private sequenceGenerator:SequanceGeneratorService) {
 
  }
 
@@ -54,7 +54,7 @@ export class PlaceOrderComponent implements OnInit{
     this.selectedSymbol=this.symbolService.getSymbolById(this.symbolId);
     if(this.selectedSymbol){
       this.invalidSymbol=false;
-      this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.orderNumberSequence.getNextOrderNumber()))
+      this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.sequenceGenerator.getNextSequence('order')))
       this.resetValues();
       this.hideModal();
     }else{
