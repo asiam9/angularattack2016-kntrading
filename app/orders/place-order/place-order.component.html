@@ -16,35 +16,35 @@
 
        <form class="form-horizontal" #poForm="ngForm" >
 
-         <div class="form-group">
-<!--           <label for="symbol" class="col-sm-2 control-label">Symbol</label>-->
-           <div class="col-sm-4" >
-               <label>Symbol</label>
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group" >
+           <label for="symbol" class="control-label">Symbol<span *ngIf="formSubmitted && !selectedSymbol" class="red p-l-5">
+               please enter a valid symbol
+            </span></label>
              <input type="text" class="form-control"  id="symbol" [(ngModel)]="symbolId"  ngControl="osymbol"  #osymbol="ngForm"   placeholder="Symbol" required>
            </div>
-             <div *ngIf="formSubmitted && !selectedSymbol" class=" col-sm-6 alert alert-danger">
-               please enter a valid symbol
-            </div>
+             
          </div>
 
-         <div class="form-group">
-<!--           <label for="quantity" class="col-sm-2 control-label">Quantity</label>-->
-           <div class="col-sm-8">
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group">
+           <label for="quantity" class="">Quantity</label>
              <input type="number" class="form-control" [(ngModel)]="quantity" id="quantity" pattern="^[1-9][0-9]*$" data-toggle="tooltip" data-placement="top" title="Number more than one without fraction"   ngControl="oquantity"  #oquantity="ngForm" placeholder="Quantity" required>
            </div>
          </div>
 
-         <div class="form-group">
-<!--           <label for="price" class="col-sm-2 control-label">Price</label>-->
-           <div class="col-sm-8">
+         <div class="col-md-10 col-md-offset-1">
+           <div class="form-group">
+           <label for="price" class="">Price</label>
              <input type="number" class="form-control" id="price" [(ngModel)]="price" pattern="[1-9]*\.?[0-9]{1,3}" data-toggle="tooltip" data-placement="top" title="Number more than zero with max 3 digits after floating point" ngControl="oprice"  #oprice="ngForm" placeholder="Price" required>
            </div>
          </div>
 
-         <div class="form-group">
-           <label  class="col-sm-4 control-label">Trade Amount</label>
-           <div class="col-sm-4">{{getTradeAmount()}}</div>
-         </div>
+        <div class="col-md-10 col-md-offset-1 total-amount">
+            <div class="col-md-4 total-value"><label class="form-group">Trade Amount</label></div>
+           
+            <div class="col-md-8 total-value">{{getTradeAmount()}}</div>
+        </div>
 
        </form>
 
@@ -54,8 +54,8 @@
 
    </div>
    <div class="modal-footer">
-     <button type="button" class="btn btn-primary btn-default"   (click)="addOrder(true)" [disabled]="!poForm.form.valid">Buy</button>
-     <button type="button" class="btn btn-danger btn-default" (click)="addOrder(false)" [disabled]="!poForm.form.valid">Sell</button>
+     <button type="button" class="btn btn-green btn-medium"   (click)="addOrder(true)" [disabled]="!poForm.form.valid">Buy</button>
+     <button type="button" class="btn btn-danger btn-medium" (click)="addOrder(false)" [disabled]="!poForm.form.valid">Sell</button>
    </div>
  </div>
 </div>
