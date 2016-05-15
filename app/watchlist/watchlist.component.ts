@@ -52,7 +52,7 @@ export class WatchListComponent implements OnInit{
         //}
     }
     public typeaheadOnSelect(e:any):void {
-        this.newWatchlistSymbols.push(e);
+        this.newWatchlistSymbols.push(e.item);
         this.selectedSymbols=[];
     }
 
