@@ -1,10 +1,15 @@
 import {Market} from './market';
+import {SYMBOLS} from './mock-market-symbols';
+
 
 export var MarketData: Market = {
 	"id": "DAUBI",
 	"name": "Mr. Nice",
-	"marketSummary": {
+ 	"marketStatusUrl":"../app/pricing/market/status.png",
+  "marketImageUrl":"../app/pricing/market/market.png",
+	"summary": {
 		"mainIndexValue": 686112,
+		"mainIndexDirectionUrl":"../app/pricing/market/down.png",
 		"change": 20.04,
 		"changePercentage": 0.29,
 		"changeDirection": "-",
@@ -15,85 +20,5 @@ export var MarketData: Market = {
 		"up": 22,
 		"down": 9
 	},
-	"symbols": [{
-			"id": "Narco",
-			"name": "Narco",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}, {
-			"id": "DFM",
-			"name": "DFM",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}, {
-			"id": "DIC",
-			"name": "DIC",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}, {
-			"id": "Narco",
-			"name": "Narco",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}, {
-			"id": "EMAAR",
-			"name": "EMAAR",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}, {
-			"id": "TABREED",
-			"name": "TABREED",
-			"bidPrice": 12.464,
-			"bidSize": 4354,
-			"offerPrice": 55.575,
-			"offerSize": 487576,
-			"lastPrice": 567.676,
-			"change": 67.4,
-			"changeDirection": "-",
-			"changePercent": 68.7,
-			"lastTradeQuantity": 878,
-			"lastTradeTime": "5/13/2016 7:12"
-		}
-
-	]
+	"symbols": SYMBOLS
 }

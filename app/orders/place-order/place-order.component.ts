@@ -1,29 +1,58 @@
-import {Component} from "@angular/core";
+import {Component,ElementRef,OnInit} from "@angular/core";
 import {Order} from '../shared/order';
 import {SymbolsService} from '../../shared/symbol.service';
 import {Symbol} from '../../shared/symbol';
+import {OrdersService} from '../shared/orders.service';
+import {OrderNumberSequence} from '../shared/order-number-sequence.service';
 
+declare var jQuery:any;
 
 @Component({
   selector: 'place-order',
   templateUrl: 'app/orders/place-order/place-order.component.html',
-  providers:[SymbolsService]
+  styleUrls:['app/orders/place-order/place-order.component.css'],
+  providers:[SymbolsService,OrdersService,OrderNumberSequence]
 })
 
-export class PlaceOrderComponent {
-
-
+export class PlaceOrderComponent implements OnInit{
 
   symbolId:string;
   price:number;
   quantity:number;
+  selectedSymbol:Symbol;
+  invalidSymbol:boolean=false;
+  formSubmitted:boolean=false;
 
-  constructor(private symbolService:SymbolsService) { }
+  ngOnInit(){
+    jQuery('[data-toggle="tooltip"]').tooltip();
+  }
 
-  addOrder(){
-    let symbol:Symbol=this.symbolService.getSymbolById(this.symbolId);
-    if(symbol){
+  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) { }
 
+  getTradeAmount(){
+    let tradeAmount=this.quantity*this.price;
+    return (!isNaN(tradeAmount) && tradeAmount>0 ?tradeAmount:'');
+  }
+  resetValues(){
+    this.symbolId=undefined;
+    this.price=undefined;
+    this.quantity=undefined;
+  }
+
+  hideModal(){
+    jQuery('#myModal').modal('hide');
+  }
+
+  addOrder(isBus:boolean){
+    this.formSubmitted=true;
+    this.selectedSymbol=this.symbolService.getSymbolById(this.symbolId);
+    if(this.selectedSymbol){
+      this.invalidSymbol=false;
+      this.ordersService.addOrder(new Order(this.selectedSymbol,this.quantity,this.price,isBus,this.orderNumberSequence.getNextOrderNumber()))
+      this.resetValues();
+      this.hideModal();
+    }else{
+      this.invalidSymbol=true;
     }
   }
 
