@@ -4,6 +4,7 @@ import {SymbolsService} from '../../shared/symbol.service';
 import {Symbol} from '../../shared/symbol';
 import {OrdersService} from '../shared/orders.service';
 import {OrderNumberSequence} from '../shared/order-number-sequence.service';
+import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
 
 declare var jQuery:any;
 
@@ -11,6 +12,7 @@ declare var jQuery:any;
   selector: '[place-order]',
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
+  directives:[TYPEAHEAD_DIRECTIVES],
   providers:[SymbolsService,OrdersService,OrderNumberSequence]
 })
 
@@ -22,9 +24,11 @@ export class PlaceOrderComponent implements OnInit{
   selectedSymbol:Symbol;
   invalidSymbol:boolean=false;
   formSubmitted:boolean=false;
+  symbolsList:Symbol[];
 
   ngOnInit(){
     jQuery('[data-toggle="tooltip"]').tooltip();
+    this.symbolService.getSymbolsList().then(symbols=>this.symbolsList=symbols);
   }
 
   constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) {
