@@ -40,7 +40,7 @@
                 <form (ngSubmit)="addWatchlist()" #watchListForm="ngForm">
                     <div class="form-group">
                         <label for="watchlist-name" class="control-label">Name</label>
-                        <input type="text" #watchlistName class="form-control" [(ngModel)]="watchlist.name" data-toggle="tooltip" data-placement="top" trigger="hover" title="watchlist name is required"
+                        <input type="text" #watchlistName class="form-control" [(ngModel)]="watchlist.name" data-toggle="tooltip" data-placement="top" trigger="hover" title="watchlist name is required, min 6 characters"
                                id="watchlist-name" placeholder="Enter watchlist name" required minlength="6">
                     </div>
                     <div class="form-group">
