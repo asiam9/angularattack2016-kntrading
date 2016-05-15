@@ -4,7 +4,7 @@ import {WATCHLISTS} from '../watchlist/mock-watchlist';
 
 
 @Injectable()
-export class SequanceGeneratorService {
+export class SequenceGeneratorService {
   constructor() { }
 
 getNextSequence(entity:string){
