@@ -4,7 +4,7 @@ import {Symbol} from '../shared/symbol';
 import {SymbolsService} from '../shared/symbol.service'
 import { WatchlistService } from './watchlist.service';
 import { TYPEAHEAD_DIRECTIVES } from 'ng2-bootstrap/ng2-bootstrap';
-//declare var typeahead: any;
+declare var jquery: any;
 
 @Component({
     selector: 'watchlist',
@@ -37,7 +37,6 @@ export class WatchListComponent implements OnInit{
         this.getSymbols();
     }
 
-
     deleteWatchlist(watchlist:Watchlist){
 
         _.remove(this.watchlistArr, function(currentWatchlist) {
@@ -45,20 +44,32 @@ export class WatchListComponent implements OnInit{
         });
 
     }
-    addWatchlist(name:string) {
-        /*if(valid){*/
+    addWatchlist(currentName:string,valid:boolean,form:Object) {
+        if(valid) {
+            var newWatchlist = new Watchlist();
+            newWatchlist.name = currentName;
+            newWatchlist.symbols = this.newWatchlistSymbols;
+            this.watchlistArr.push(newWatchlist);
+        }
 
-            this.watchlistArr.push(this.watchlist);
-        //}
     }
     typeaheadOnSelect(e:any) {
         if(!this.newWatchlistSymbols) {
             this.newWatchlistSymbols = [];
         }
         this.newWatchlistSymbols.push(e.item);
+        e.item={};
         this.selectedSymbols=[];
     }
+    deleteSymbols(symbol:Symbol){
+        _.remove(this.newWatchlistSymbols, function(currentSymbol) {
+            return symbol.id  == currentSymbol.id;
+        });
+    }
+    editWatchlist(watchlist:Watchlist){
 
+
+    }
     /* getWatchlistSymbols(watchlist: Watchlist){
          this.selectedWatchlist=watchlist;
        //  this.watchlistSymbols=this.selectedWatchlist.symbols;
