@@ -198,6 +198,18 @@ button.acti-btn, .btn-non-bg {
 .p-l-5 {
     padding-left: 5px;
 }
+.p-r-5 {
+    padding-right: 5px;
+}
+.f-s-20 {
+    font-size: 20px;
+}
+.f-s-25 {
+    font-size: 25px;
+}
+.f-s-30 {
+    font-size: 30px;
+}
 /*MARGINS*/
 
 
