@@ -25,7 +25,6 @@ System.register(['@angular/core', './mock-orders'], function(exports_1, context_
                 function OrdersService() {
                 }
                 OrdersService.prototype.addOrder = function (order) {
-                    console.log(order);
                     mock_orders_1.ORDERS.push(order);
                 };
                 OrdersService.prototype.getOrders = function () {

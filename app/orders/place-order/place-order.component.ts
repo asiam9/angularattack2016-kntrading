@@ -8,7 +8,7 @@ import {OrderNumberSequence} from '../shared/order-number-sequence.service';
 declare var jQuery:any;
 
 @Component({
-  selector: 'place-order',
+  selector: '[place-order]',
   templateUrl: 'app/orders/place-order/place-order.component.html',
   styleUrls:['app/orders/place-order/place-order.component.css'],
   providers:[SymbolsService,OrdersService,OrderNumberSequence]
@@ -27,7 +27,9 @@ export class PlaceOrderComponent implements OnInit{
     jQuery('[data-toggle="tooltip"]').tooltip();
   }
 
-  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) { }
+  constructor(private symbolService:SymbolsService,private ordersService:OrdersService,private orderNumberSequence:OrderNumberSequence) {
+
+ }
 
   getTradeAmount(){
     let tradeAmount=this.quantity*this.price;
