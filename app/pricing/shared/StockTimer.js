@@ -10,14 +10,17 @@ System.register([], function(exports_1, context_1) {
                     this.symbols = symbolsList;
                 }
                 StockTimer.prototype.start = function () {
-                    this.timer = setInterval(function () { this.generateFeed(); }.bind(this), 100);
+                    this.timer = setInterval(function () { this.generateFeed(); }.bind(this), 500);
                 };
                 StockTimer.prototype.stop = function () {
                     clearInterval(this.timer);
                 };
                 StockTimer.prototype.generateFeed = function () {
                     for (var n = 1; n <= 3; n++) {
-                        var symbolIndex = this.getRandomInt(30);
+                        var symbolIndex = this.getRandomInt(29);
+                        if (!this.symbols[symbolIndex]) {
+                            continue;
+                        }
                         this.symbols[symbolIndex].bidPrice.setFlicketValue(this.getRandomFloat(1000));
                         this.symbols[symbolIndex].bidSize.setFlicketValue(this.getRandomInt(50000));
                         this.symbols[symbolIndex].offerPrice.setFlicketValue(this.getRandomFloat(1000));
