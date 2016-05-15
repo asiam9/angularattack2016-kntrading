@@ -17,7 +17,7 @@ getNextSequence(entity:string){
   }
   if(entity==='watchlist'){
     for (var index in WATCHLISTS) {
-  //    nextSequence=WATCHLISTS[index].id>nextSequence?WATCHLISTS[index].id:nextSequence;
+      nextSequence=WATCHLISTS[index].id>nextSequence?WATCHLISTS[index].id:nextSequence;
     }
 
   }

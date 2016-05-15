@@ -1,9 +1,10 @@
 import{Component, OnInit} from '@angular/core';
 import{Watchlist} from '../watchlist/watchlist';
-import{Symbol} from '../shared/symbol';
-import{SymbolsService} from '../shared/symbol.service'
+import {MarketSymbol} from '../pricing/shared/market-symbol';
+import {MarketService} from '../pricing/shared/market.service';
 import{WatchlistService} from './watchlist.service';
 import{TYPEAHEAD_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {SequenceGeneratorService} from '../shared/sequence-generator.service';
 //import {SeqaunceGeneratorService} from '../shared/sequance-generator.service';
 
 declare var $:any;
@@ -13,7 +14,7 @@ declare var $:any;
     selector: 'watchlist',
     templateUrl: 'app/watchlist/watchlist.component.html',
     styleUrls: ['app/watchlist/watchlist.component.css'],
-    providers: [WatchlistService, SymbolsService],
+    providers: [WatchlistService,MarketService,SequenceGeneratorService],
     directives: [TYPEAHEAD_DIRECTIVES]
 })
 export class WatchListComponent implements OnInit {
@@ -21,13 +22,14 @@ export class WatchListComponent implements OnInit {
     watchlist: Watchlist;
     watchlist1: Watchlist;
     watchlistArr:Watchlist[];
-    watchlistSymbols:Symbol [];
+    selectedWatchListName:string;
+    watchlistSymbols:MarketSymbol [];
     selectedWatchlist:Watchlist;
-    symbols:Symbol [];
-    selectedSymbols:Symbol[];
-    newWatchlistSymbols:Symbol[];
+    symbols:MarketSymbol [];
+    selectedSymbols:MarketSymbol[];
+    newWatchlistSymbols:MarketSymbol[];
     isEdit:boolean=false;
-    constructor(private watchlistService:WatchlistService, private symbolsService:SymbolsService) {
+    constructor(private watchlistService:WatchlistService, private marketService:MarketService,private sequenceGenerator:SequenceGeneratorService) {
     }
 
     getWatchlists() {
@@ -37,7 +39,7 @@ export class WatchListComponent implements OnInit {
     }
 
     getSymbols() {
-    //    this.symbolsService.getSymbolsList().then(watchlistSymbols => this.watchlistSymbols = watchlistSymbols);
+        this.watchlistSymbols=this.marketService.getMarketSymbols();
     }
 
     ngOnInit() {
@@ -53,15 +55,21 @@ export class WatchListComponent implements OnInit {
 
     }
 
+    resetForm(){
+      this.selectedSymbols=[];
+        this.watchlist=new Watchlist(0,'',[]);
+    }
+
     addWatchlist(watchlist:Watchlist, valid:boolean, form:Object,isEdit:boolean) {
         var watch = _.find(this.watchlistArr, ['id', watchlist.id]);
         if(watch){
             watch.name = watchlist.name;
             watch.symbols = watchlist.symbols;
         }else {
-            this.watchlist = new Watchlist(1, watchlist.name, watchlist.symbols);
+            this.watchlist = new Watchlist(this.sequenceGenerator.getNextSequence('watchlist'), watchlist.name, watchlist.symbols);
             this.watchlistArr.push(this.watchlist);
         }
+        this.resetForm();
     }
 
     typeaheadOnSelect(e:any) {
@@ -74,7 +82,7 @@ export class WatchListComponent implements OnInit {
        // this.selectedSymbols = [];
     }
 
-    deleteSymbols(watchlist:Watchlist,symbol:Symbol) {
+    deleteSymbols(watchlist:Watchlist,symbol:MarketSymbol) {
         var symbolCopy=Object.assign({}, symbol);
         _.remove(watchlist.symbols, function (currentSymbol) {
             return symbolCopy.id == currentSymbol.id;
