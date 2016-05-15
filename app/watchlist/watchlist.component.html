@@ -39,8 +39,12 @@
                         <input type="text" #watchlistName class="form-control" id="watchlist-name" placeholder="Enter watchlist name">
                     </div>
                     <div class="form-group">
-                        <input type="search"  class="form-control" id="watchlist-symbols" placeholder="+ Add symbol">
 
+                        <input [(ngModel)]="selected"
+                               [typeahead]="watchlistSymbols"
+                               (typeaheadOnSelect)="typeaheadOnSelect($event)"
+                               [typeaheadOptionField]="'name'"
+                               class="form-control" id="watchlist-symbols" placeholder="+ Add symbol">
                     </div>
                 </form>
             </div>
