@@ -86,6 +86,12 @@ a {
     margin-left: 5px;
     font-size: 15px;
 }
+.acti-btn:hover .fa-trash-o {
+    color: #b71b1c;
+}
+.acti-btn:hover .fa-pencil-square-o {
+    color: #1c89e6;
+}
 /*BUTTONS*/
 
 /*COLORS*/
