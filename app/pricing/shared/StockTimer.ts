@@ -13,7 +13,7 @@ constructor(symbolsList: MarketSymbol[])
 
 
 start(){
-  this.timer =  setInterval(function() {this.generateFeed();}.bind(this), 100);
+  this.timer =  setInterval(function() {this.generateFeed();}.bind(this), 1000);
 }
 
 stop(){
