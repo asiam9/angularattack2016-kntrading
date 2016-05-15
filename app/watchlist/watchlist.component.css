@@ -3,14 +3,14 @@
     position: relative;
     display: block;
     margin-bottom: .75rem;
-    background-color: #fff;
-    box-shadow: 0 0 10px 1px #ccc;
+    background-color: #25323C;
+    box-shadow: 0 0 10px 1px #000;
     border-radius: .25rem;
 }
 .card-header {
-    background-color: #fff;
+    background-color: #1a252d;
     border-top: 2px solid #00d96e;
-    border-bottom: 1px solid #ebeff2;
+/*    border-bottom: 1px solid #536d7a;*/
     position: relative;
 }
 .card-header h4 {
