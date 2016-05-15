@@ -57,7 +57,7 @@ resizer { background-color: #1a252d;}
     box-shadow: 0 0 5px 1px #000;
     margin-bottom: 0;
 }
-a {
+a, button, .btn {
     outline: 0;
 }
 .navbar-default .container-fluid {
