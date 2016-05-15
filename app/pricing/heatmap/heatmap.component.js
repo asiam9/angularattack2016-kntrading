@@ -37,7 +37,7 @@ System.register(['@angular/core', '../../shared/symbol.service'], function(expor
                     this.symbolsList.sort(function (a, b) {
                         return b.changePercent - a.changePercent;
                     });
-                    this.rainbow.setSpectrum('#00d96e', '#FFFFFF', '#FF0000');
+                    this.rainbow.setSpectrum('#00FF00', '#FFFFFF', '#FF0000');
                     this.rainbow.setNumberRange(0, this.symbolsList.length);
                     this.boxHeight = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);
                     this.boxWidth = (window.innerWidth * this.boxMargin) / (13 / this.zoomDegree);

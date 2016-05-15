@@ -3,13 +3,13 @@
  */
 import { Symbol } from '../shared/symbol';
 export class Watchlist {
-    id:string;
+    id:number;
     name: string;
     symbols: Symbol[];
-    constructor(watchListID:string,watchlistName:string,watchlistSymbols:Symbol[])
+    constructor(id:number,name:string,symbols:Symbol[])
     {
-        this.id=watchListID;
-        this.name=watchlistName;
-        this.symbols=watchlistSymbols;
+        this.id=id;
+        this.name=name;
+        this.symbols=symbols;
     }
 }
