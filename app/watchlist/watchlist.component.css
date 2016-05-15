@@ -27,4 +27,11 @@
     height: 150px;
     overflow-x: auto;
 }
+
+.ng-valid[required] {
+  border-left: 5px solid #00d96e; /* green */
+}
+.ng-invalid {
+  border-left: 5px solid #FF0000; /* red */
+}
 /*ENDCARDS*/

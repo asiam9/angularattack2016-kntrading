@@ -24,9 +24,9 @@ export class WatchListComponent implements OnInit {
     watchlistArr:Watchlist[];
     selectedWatchListName:string;
     watchlistSymbols:MarketSymbol [];
+    formSubmitted:boolean=false;
     selectedWatchlist:Watchlist;
     symbols:MarketSymbol [];
-    selectedSymbols:MarketSymbol[];
     newWatchlistSymbols:MarketSymbol[];
     isEdit:boolean=false;
     constructor(private watchlistService:WatchlistService, private marketService:MarketService,private sequenceGenerator:SequenceGeneratorService) {
@@ -45,6 +45,7 @@ export class WatchListComponent implements OnInit {
     ngOnInit() {
         this.getWatchlists();
         this.getSymbols();
+          $('[data-toggle="tooltip"]').tooltip();
         this.watchlist=new Watchlist(0,'',[]);
     }
 
@@ -56,11 +57,18 @@ export class WatchListComponent implements OnInit {
     }
 
     resetForm(){
-      this.selectedSymbols=[];
         this.watchlist=new Watchlist(0,'',[]);
+        this.watchlist.symbols=[];
+        this.selectedWatchListName=undefined;
+        this.formSubmitted=false;
+    }
+
+    hideModal(){
+      $('#watchListModal').modal('hide');
     }
 
     addWatchlist(watchlist:Watchlist, valid:boolean, form:Object,isEdit:boolean) {
+      this.formSubmitted=true;
         var watch = _.find(this.watchlistArr, ['id', watchlist.id]);
         if(watch){
             watch.name = watchlist.name;
@@ -70,13 +78,17 @@ export class WatchListComponent implements OnInit {
             this.watchlistArr.push(this.watchlist);
         }
         this.resetForm();
+        this.hideModal();
     }
 
     typeaheadOnSelect(e:any) {
         //if (!this.newWatchlistSymbols) {
         //    this.newWatchlistSymbols = [];
         //}
-        this.watchlist.symbols.push(e.item);
+        let symbol= _.find(this.watchlist.symbols, ['id', e.item.id]);
+        if(!symbol){
+          this.watchlist.symbols.push(e.item);
+        }
         this.selectedWatchListName=undefined;
         //$("#watchlist-symbol").val('');
         //e.item = {};
@@ -108,7 +120,6 @@ export class WatchListComponent implements OnInit {
         this.watchlist = watchlist;
         $('#watchListModal').modal('show');
         $('#watchListModal').on('shown.bs.modal', function (e) {
-            console.log(watchlist);
             $("#watchListModalLabel").text("Edit watchlist");
             $("#watchlist-name").val(watchlist.name);
 
